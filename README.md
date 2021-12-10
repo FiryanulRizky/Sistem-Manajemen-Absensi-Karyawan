@@ -3,7 +3,17 @@ Dibuat untuk memenuhi Technical Test PT. Pilarmedia Indonesia
 
 Oleh : Muhammad Firyanul Rizky, email : firyan2903@gmail.com, no. hp : 0895606181117
 
-Dibuat menggunakan Framework Laravel 8  
+Dibuat menggunakan Framework Laravel 8
+
+Ketentuan demo aplikasi :
+1. instalasi database pada file env dengan nama database: absensi, kemudian lakukan migrasi : php artisan migrate, lalu tambah data dengan eloquent orm, atau bisa gunakan langsung databse sql yg sudah disediakan.
+2. masuk sesi admin dengan email firyan2903@gmail.com dan password : 123
+3. masuk sesi karyawan dengan email anul29@mail.com dan password :123456
+
+Kekurangan Aplikasi : 
+fitur register baik admin dan karyawan belum rampung sepenuhnya pada index, sementara untuk penambahan admin bisa dilakukan menggunakan eloquent orm, untuk petunjuk bisa lihat screenshot paling bawah. Sedangkan Untuk karyawan bisa dilakukan pada fitur tambah karyawan pada sesi admin atau bisa juga memakai eloquent orm dengan ketentuan :
+1. lakukan perintah php artisan tinker, lalu buat variabel baru $emp = new App\Employee
+2. selanjutnya ikuti petunjuk pada screenshot paling bawah untuk menambahkan elemen 'user_id', 'first_name', 'last_name', 'sex', 'dob', 'join_date', 'desg', 'department_id', 'salary', 'photo'
 
 # Berikut adalah ketentuan yang sudah terpenuhi :
 # 1. Menggambarkan flow diagram / usecase diagram sederhana yang menggambarkan fitur sistem
@@ -85,6 +95,3 @@ Geo Tagging Untuk absen keluar :
 # 4. Menggunakan Eloquent ORM Laravel dalam melakukan interaksi database.
 Berikut adalah implementasinya :
 ![14  Interaksi Database dengan Eloquent ORM Laravel](https://user-images.githubusercontent.com/60762912/145530517-386bf347-741b-4940-909c-ee07fcd59f30.PNG)
-
-
-
