@@ -1,5 +1,5 @@
 # Sistem-Manajemen-Absensi-Karyawan
-Dibuat untuk memenuhi Projek Freelance Mitrais
+Projek Pertama PT. Integra Teknologi Solusi
 
 Oleh : Muhammad Firyanul Rizky, email : firyan2903@gmail.com, no. hp : 0895606181117
 
