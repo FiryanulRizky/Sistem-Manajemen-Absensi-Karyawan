@@ -65,9 +65,9 @@
                                                 <span 
                                                 @if ($leave->status == 'pending')
                                                     class="badge badge-pill badge-warning"
-                                                @elseif($leave->status == 'declined')
+                                                @elseif($leave->status == 'ditolak')
                                                     class="badge badge-pill badge-danger"
-                                                @elseif($leave->status == 'approved')
+                                                @elseif($leave->status == 'diterima')
                                                     class="badge badge-pill badge-success"
                                                 @endif
                                                 >

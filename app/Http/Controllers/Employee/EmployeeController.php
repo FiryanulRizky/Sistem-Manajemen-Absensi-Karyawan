@@ -73,7 +73,7 @@ class EmployeeController extends Controller
             $image = $request->file('photo');
             $image_resize = Image::make($image->getRealPath());              
             $image_resize->resize(300, 300);
-            $image_resize->save(public_path(DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.$filename_store));
+            $image_resize->save(public_path(DIRECTORY_SEPARATOR.'storage/employee_photos/'.DIRECTORY_SEPARATOR.$filename_store));
             $employee->photo = $filename_store;
         }
         $employee->save();

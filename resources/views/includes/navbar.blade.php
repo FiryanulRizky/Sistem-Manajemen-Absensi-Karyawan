@@ -17,7 +17,7 @@
         <li class="nav-item dropdown user user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 @if (Auth::user()->employee)
-                <img src="/storage/{{ Auth::user()->employee->photo }}" class="user-image img-circle elevation-2 alt="User Image">
+                <img src="/storage/employee_photos/{{ Auth::user()->employee->photo }}" class="user-image img-circle elevation-2 alt="User Image">
                 @else
                 <img src="/dist/img/firyanul.png" class="user-image img-circle elevation-2 alt="User Image">
                 @endif
@@ -42,7 +42,7 @@
                 <!-- Menu Body -->
                 <li class="user-body text-center">
                     @if ( Auth::user()->employee )
-                    <small>Member since {{ Auth::user()->employee->join_date->format('d M, Y') }}</small>
+                    <small>Terdaftar Sejak {{ Auth::user()->employee->join_date->format('d M, Y') }}</small>
                     @endif 
                 <!-- /.row -->
                 </li>
@@ -50,9 +50,9 @@
                 <li class="user-footer">
                 <div class="pull-left">
                     @if ( Auth::user()->employee )
-                    <a href="{{ route('employee.profile') }}" class="btn btn-default btn-flat">Profile</a>
+                    <a href="{{ route('employee.profile') }}" class="btn btn-default btn-flat">Profil</a>
                     @else
-                    <a href="{{ route('admin.reset-password') }}" class="btn btn-default btn-flat">Change Password</a>
+                    <a href="{{ route('admin.reset-password') }}" class="btn btn-default btn-flat">Ganti Password</a>
                     @endif
                 </div>
                 <div class="pull-right">

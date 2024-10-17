@@ -24,7 +24,7 @@
             <div class="image">
                 @if (Auth::user()->employee)
                 <img
-                    src="/storage/{{ Auth::user()->employee->photo }}"
+                    src="/storage/employee_photos/{{ Auth::user()->employee->photo }}"
                     class="img-circle elevation-2"
                     alt="User Image"
                 />

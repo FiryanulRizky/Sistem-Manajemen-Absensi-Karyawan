@@ -70,7 +70,7 @@
                             type="submit"
                             class="btn btn-primary btn-block"
                         >
-                            Change Password
+                            Ganti Password
                         </button>
                     </div>
                     <!-- /.col -->

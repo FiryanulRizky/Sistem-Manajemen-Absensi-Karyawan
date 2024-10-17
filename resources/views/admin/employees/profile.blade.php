@@ -78,7 +78,7 @@
                             </tr>
                             <tr>
                                 <td>Gaji</td>
-                                <td>₹ {{ $employee->salary }}</td>
+                                <td>Rp. {{ $employee->salary }}</td>
                             </tr>
                         </table>
                     </div>

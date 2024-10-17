@@ -35,7 +35,7 @@
             <div class="col-lg-6 col-md-8 mx-auto">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h5 class="text-center mt-2">My Profile</h5>
+                        <h5 class="text-center mt-2">Profil Saya</h5>
                     </div>
                     <form action="{{ route('employee.profile-update', $employee->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -44,7 +44,7 @@
                         
                             <fieldset>
                                 <div class="form-group">
-                                    <label for="">First Name</label>
+                                    <label for="">Nama Awal</label>
                                     <input type="text" name="first_name" value="{{ $employee->first_name }}" class="form-control">
                                     @error('first_name')
                                         <div class="text-danger">
@@ -53,7 +53,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Last Name</label>
+                                    <label for="">Nama Akhir</label>
                                     <input type="text" name="last_name" value="{{ $employee->last_name }}" class="form-control">
                                     @error('last_name')
                                         <div class="text-danger">
@@ -62,28 +62,28 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="dob">Date of Birth</label>
+                                    <label for="dob">Tanggal Lahir</label>
                                     <input type="text" name="dob" id="dob" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Gender</label>
+                                    <label for="">Jenis Kelamin</label>
                                     <select name="gender" class="form-control">
                                         @if ($employee->sex == 'Male')
-                                            <option value="Male" selected>Male</option>
-                                            <option value="Female">Female</option>
+                                            <option value="Male" selected>Laki-Laki</option>
+                                            <option value="Female">Perempuan</option>
                                         @else
-                                            <option value="Male">Male</option>
-                                            <option value="Female" selected>Female</option>
+                                            <option value="Male">Laki-Laki</option>
+                                            <option value="Female" selected>Perempuan</option>
                                         @endif
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="join_date">Join Date</label>
+                                    <label for="join_date">Tanggal Bergabung</label>
                                     <input type="text" name="join_date" id="join_date" class="form-control">
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label for="">Designation</label>
+                                        <label for="">Jabatan</label>
                                         <select name="desg" class="form-control">
                                             @foreach ($desgs as $desg)
                                                 <option value="{{ $desg }}"
@@ -126,7 +126,7 @@
                         
                     </div>
                     <div class="card-footer text-center">
-                        <button type="submit" class="btn btn-flat btn-primary" style="width: 40%; font-size:1.3rem">Save</button>
+                        <button type="submit" class="btn btn-flat btn-primary" style="width: 40%; font-size:1.3rem">Simpan</button>
                     </div>
                 </form>
                 </div>

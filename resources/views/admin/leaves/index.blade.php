@@ -76,9 +76,9 @@
                                                 <span 
                                                 @if ($leave->status == 'pending')
                                                     class="badge badge-pill badge-warning"
-                                                @elseif($leave->status == 'declined')
+                                                @elseif($leave->status == 'ditolak')
                                                     class="badge badge-pill badge-danger"
-                                                @elseif($leave->status == 'approved')
+                                                @elseif($leave->status == 'diterima')
                                                     class="badge badge-pill badge-success"
                                                 @endif
                                                 >
@@ -128,8 +128,8 @@
                                                             <select name="status" class="form-control text-center mx-auto" style="width:50%">
                                                                 <option hidden disabled selected value> ---- </option>
                                                                 <option value="pending">Pending</option>
-                                                                <option value="approved">Diterima</option>
-                                                                <option value="declined">Ditolak</option>
+                                                                <option value="diterima">Diterima</option>
+                                                                <option value="ditolak">Ditolak</option>
                                                             </select>
                                                         </div>
                                                         

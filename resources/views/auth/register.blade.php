@@ -11,7 +11,7 @@
                         <h5 class="text-center mt-2">Register Karyawan</h5>
                     </div>
                     @include('messages.alerts')
-                    <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('register/employees-reg') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
                     <div class="card-body">

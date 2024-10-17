@@ -64,9 +64,9 @@
                                                 <span 
                                                 @if ($expense->status == 'pending')
                                                     class="badge badge-pill badge-warning"
-                                                @elseif($expense->status == 'declined')
+                                                @elseif($expense->status == 'ditolak')
                                                     class="badge badge-pill badge-danger"
-                                                @elseif($expense->status == 'approved')
+                                                @elseif($expense->status == 'diterima')
                                                     class="badge badge-pill badge-success"
                                                 @endif
                                                 >
