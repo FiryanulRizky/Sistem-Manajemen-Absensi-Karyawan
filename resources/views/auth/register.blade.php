@@ -8,10 +8,10 @@
             <div class="col-lg-6 col-md-8 mx-auto">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h5 class="text-center mt-2">Register Karyawan</h5>
+                        <h5 class="text-center mt-2">Register Admin</h5>
                     </div>
                     @include('messages.alerts')
-                    <form action="{{ route('register/employees-reg') }}" method="POST" enctype="multipart/form-data">
+                   <form action="{{ route('register.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
                     <div class="card-body">
@@ -91,7 +91,7 @@
                                             <option hidden disabled selected value> -- Pilih Opsi -- </option>
                                             <?php $conn = mysqli_connect("localhost","root","","absensi"); 
                                             $dt=mysqli_query($conn,"SELECT * FROM departments");
-                                            while($dt2=mysqli_fetch_array($dt)) { echo"<option value=".$dt2['name'].">".$dt2['name']."
+                                            while($dt2=mysqli_fetch_array($dt)) { echo"<option value=".$dt2['id'].">".$dt2['name']."
                                                 </option>"; }?>
                                         </select>                     
                                     </div>

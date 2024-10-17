@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,16 @@ Route::get('/', function () {
 
 
 
-Auth::routes(['register' => 'Register2Controller@register']);
-Route::get('/employees/list-employees', 'Register2Controller@index')->name('register.index');
-    Route::get('/employees/add-employee', 'Register2Controller@create')->name('register.create');
-    Route::post('/employees', 'RegisterController@store')->name('register.store');
+Auth::routes(['register' => 'RegisterController@rindex']);
+    Route::get('/register/add-employee', 'RegisterController@create')->name('register.create');
+    Route::post('/register/employees-reg', [RegisterController::class,'store'])->name('register.store');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth','can:admin-access'])->group(function () {
     Route::get('/', 'AdminController@index')->name('index');
+    Route::get('/profile/{admin_id}', 'AdminController@adminProfile')->name('profile');
+    Route::get('/profile-edit/{admin_id}', 'AdminController@profile_edit')->name('profile-edit');
+    Route::put('/profile/{admin_id}', 'AdminController@profile_update')->name('profile-update');
     Route::get('/reset-password', 'AdminController@reset_password')->name('reset-password');
     Route::put('/update-password', 'AdminController@update_password')->name('update-password');
 

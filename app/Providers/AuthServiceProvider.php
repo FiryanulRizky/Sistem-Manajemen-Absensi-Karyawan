@@ -36,5 +36,6 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('employee-expenses-access', 'App\Policies\ExpensePolicy@expense_access');
         Gate::define('employee-leaves-access', 'App\Policies\LeavePolicy@leave_access');
         Gate::define('employee-profile-access', 'App\Policies\EmployeePolicy@isOwner');
+        Gate::define('admin-profile-access', 'App\Policies\AdminPolicy@isOwner');
     }
 }

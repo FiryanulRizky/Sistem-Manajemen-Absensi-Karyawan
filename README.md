@@ -9,10 +9,16 @@ Ketentuan demo aplikasi :
 2. masuk sesi admin dengan email firyan2903@gmail.com dan password : 123
 3. masuk sesi karyawan dengan email anul29@mail.com dan password :123456
 
-Kekurangan Aplikasi :
-fitur register baik admin dan karyawan belum rampung sepenuhnya pada index, sementara untuk penambahan admin bisa dilakukan menggunakan eloquent orm, untuk petunjuk bisa lihat screenshot paling bawah. Sedangkan Untuk karyawan bisa dilakukan pada fitur tambah karyawan pada sesi admin atau bisa juga memakai eloquent orm dengan ketentuan :
+Update Aplikasi :
+1. Fitur Register Admin terdapat pada awal sesi sebelum login
+2. Sedangkan Fitur Register Karyawan terdapat dalam sesi Admin setelah login
+
+NOTE : Penambahan admin selain melalui menu register bisa dilakukan juga menggunakan eloquent orm, untuk petunjuk bisa lihat screenshot paling bawah. Sedangkan Untuk karyawan bisa dilakukan pada fitur tambah karyawan pada sesi admin atau bisa juga memakai eloquent orm dengan ketentuan :
 1. lakukan perintah php artisan tinker, lalu buat variabel baru $emp = new App\Employee
 2. selanjutnya ikuti petunjuk pada screenshot paling bawah untuk menambahkan elemen 'user_id', 'first_name', 'last_name', 'sex', 'dob', 'join_date', 'desg', 'department_id', 'salary', 'photo'
+
+TAMBAHKAN FOLDER : storage/employee_photos
+pada direktori publik untuk menunjang fitur upload dan penyimpanan gambar/images
 
 # Berikut adalah ketentuan yang sudah terpenuhi :
 # 1. Menggambarkan flow diagram / usecase diagram sederhana yang menggambarkan fitur sistem

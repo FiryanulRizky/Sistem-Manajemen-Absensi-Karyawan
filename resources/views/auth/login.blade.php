@@ -57,7 +57,7 @@
                                     {{ __('Login') }}
                                 </button>
                                 <a class="btn btn-link" href="{{ route('register') }}">
-                                        {{ __('Register Karyawan') }}
+                                        {{ __('Register Admin') }}
                                     </a>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
