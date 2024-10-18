@@ -72,7 +72,7 @@
                                             type="text"
                                             class="form-control text-center"
                                             id="entry_loc"
-                                            placeholder="Locaton Loading..."
+                                            placeholder="Memuat Lokasi..."
                                             disabled
                                             />
                                             <input type="text" name="entry_location" name="entry_location"
@@ -164,7 +164,7 @@
                                             class="form-control text-center"
                                             id="exit_loc"
                                             @if ($attendance)
-                                            placeholder="Loading location..."
+                                            placeholder="Memuat Lokasi..."
                                                 
                                             @else
                                             placeholder="..."

@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Attendance;
 use App\Department;
 use \DateTime as DateTime;
@@ -29,56 +31,72 @@ class UsersTableSeeder extends Seeder
         $adminRole =  Role::where('name', 'admin')->first();
 
         $admin = User::create([
-            'name' => 'Admin User',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin')
+            'name' => 'Firyanul Rizky',
+            'email' => 'firyan2903@gmail.com',
+            'password' => Hash::make('123')
         ]);
 
         $employee = User::create([
-            'name' => 'Akashdeep Nandi',
-            'email' => 'akash@gmail.com',
-            'password' => Hash::make('akash')
+            'name' => 'Anul Emp',
+            'email' => 'anul29@mail.com',
+            'password' => Hash::make('123456')
         ]);
 
         // 
         $employee->roles()->attach($employeeRole);
-        $dob = new DateTime('1997-09-15');
-        $join = new DateTime('2020-01-15');
+        $dob = new DateTime('1999-03-29');
+        $join = new DateTime('2021-09-15');
         $admin->roles()->attach($adminRole);
-        $employee = Employee::create([
-            'user_id' => $employee->id,
-            'first_name' => 'Akashdeep',
-            'last_name' => 'Nandi',
+        $admin = Employee::create([
+            'user_id' => $admin->id,
+            'first_name' => 'Firyanul',
+            'last_name' => 'Rizky',
             'dob' => $dob->format('Y-m-d'),
             'sex' => 'Male',
             'desg' => 'Manager',
             'department_id' => '1',
             'join_date' => $join->format('Y-m-d'),
-            'salary' => 10520.75
+            'salary' => 6500000,
+            'photo' => 'download.png'
+        ]);
+        $employee = Employee::create([
+            'user_id' => $employee->id,
+            'first_name' => 'Anul',
+            'last_name' => 'Emp',
+            'dob' => $dob->format('Y-m-d'),
+            'sex' => 'Male',
+            'desg' => 'Staff',
+            'department_id' => '9',
+            'join_date' => $join->format('Y-m-d'),
+            'salary' => 300000,
+            'photo' => 'download_1639112200.png'
         ]);
 
-        Department::create(['name' => 'Marketing']);
-        Department::create(['name' => 'Sales']);
-        Department::create(['name' => 'Logistics']);
-        Department::create(['name' => 'Human Resources']);
+        Department::create(['name' => 'Manajemen']);
+        Department::create(['name' => 'Perawat']);
+        Department::create(['name' => 'Bidan']);
+        Department::create(['name' => 'Dokter']);
+        Department::create(['name' => 'Kasir']);
+        Department::create(['name' => 'Farmasi']);
+        Department::create(['name' => 'Front Office']);
+        Department::create(['name' => 'Petugas Kebersihan']);
+        Department::create(['name' => 'Backend Developer']);
 
         // Attendance seeder
-        $create = Carbon::create(2020, 8, 17, 10, 00, 23, 'Asia/Kolkata');
-        $update = Carbon::create(2020, 8, 17, 17, 00, 23, 'Asia/Kolkata');
-        for ($i=0; $i < 6; $i++) { 
+        $create = Carbon::create(2021, 8, 17, 10, 00, 23, 'Asia/Jakarta');
+        $update = Carbon::create(2021, 8, 17, 17, 00, 23, 'Asia/Jakarta');
             $attendance = Attendance::create([
                 'employee_id' => $employee->id,
-                'entry_ip' => '123.156.125.123',
-                'entry_location' => 'Kanakpur: '.$i,
+                'entry_ip' => '127.0.0.1',
+                'entry_location' => '',
                 'created_at' => $create
             ]);
-            $attendance->exit_ip = '151.235.124.236';
-            $attendance->exit_location = 'Exit location: '.$i;
+            $attendance->exit_ip = '127.0.0.1';
+            $attendance->exit_location = '';
             $attendance->registered = 'yes';
             $attendance->updated_at = $update;
             $attendance->save();
             $create->addDay();
             $update->addDay();
-        }
     }
 }

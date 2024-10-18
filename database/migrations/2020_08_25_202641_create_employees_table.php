@@ -23,7 +23,7 @@ class CreateEmployeesTable extends Migration
             $table->string('desg');
             $table->string('department_id');
             $table->dateTime('join_date');
-            $table->float('salary');
+            $table->string('salary');
             $table->timestamps();
         });
     }

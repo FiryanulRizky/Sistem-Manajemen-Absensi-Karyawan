@@ -5,9 +5,13 @@ Oleh : Muhammad Firyanul Rizky, email : firyan2903@gmail.com, no. hp : 089560618
 Dibuat menggunakan Framework Laravel 9
 
 Ketentuan demo aplikasi :
-1. instalasi database pada file env dengan nama database: absensi, kemudian lakukan migrasi : php artisan migrate, lalu tambah data dengan eloquent orm, atau bisa gunakan langsung databse sql yg sudah disediakan.
-2. masuk sesi admin dengan email firyan2903@gmail.com dan password : 123
-3. masuk sesi karyawan dengan email anul29@mail.com dan password :123456
+1. instalasi database pada file env dengan nama database: absensi
+2. diberikan 3 pilihan untuk fill data pada database :
+   - dengan seeder : jalankan php artisan migrate:fresh --seed
+   - import data absensi.sql yang sudah disediakan
+   - dengan eloquent orm
+3. masuk sesi admin dengan email firyan2903@gmail.com dan password : 123
+4. masuk sesi karyawan dengan email anul29@mail.com dan password :123456
 
 Update Aplikasi :
 1. Fitur Register Admin terdapat pada awal sesi sebelum login

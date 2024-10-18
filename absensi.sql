@@ -45,8 +45,8 @@ CREATE TABLE `attendances` (
 --
 
 INSERT INTO `attendances` (`id`, `employee_id`, `entry_ip`, `entry_location`, `exit_ip`, `exit_location`, `registered`, `created_at`, `updated_at`, `time`) VALUES
-(22, 4, '127.0.0.1', 'Ujung Hyang, Ujung, Bali, 80811, Indonesia', NULL, NULL, NULL, '2021-12-10 04:09:07', '2021-12-10 04:09:07', '23'),
-(23, 3, '127.0.0.1', 'Ujung Hyang, Ujung, Bali, 80811, Indonesia', '127.0.0.1', 'Ujung Hyang, Ujung, Bali, 80811, Indonesia', 'yes', '2021-12-10 04:47:08', '2021-12-10 05:02:29', '12');
+(1, 2, '127.0.0.1', 'Ujung Hyang, Ujung, Bali, 80811, Indonesia', NULL, NULL, NULL, '2021-12-10 04:09:07', '2021-12-10 04:09:07', '23'),
+(2, 2, '127.0.0.1', 'Ujung Hyang, Ujung, Bali, 80811, Indonesia', '127.0.0.1', 'Ujung Hyang, Ujung, Bali, 80811, Indonesia', 'yes', '2021-12-10 04:47:08', '2021-12-10 05:02:29', '12');
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,15 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Backend Developer', '2021-12-09 03:49:38', '2021-12-09 03:50:28');
+(1, 'Manajemen', '2021-12-09 03:49:38', '2021-12-09 03:50:28'),
+(2, 'Perawat', '2021-12-09 03:49:38', '2021-12-09 03:50:28'),
+(3, 'Bidan', '2021-12-09 03:49:38', '2021-12-09 03:50:28'),
+(4, 'Dokter', '2021-12-09 03:49:38', '2021-12-09 03:50:28'),
+(5, 'Kasir', '2021-12-09 03:49:38', '2021-12-09 03:50:28'),
+(6, 'Farmasi', '2021-12-09 03:49:38', '2021-12-09 03:50:28'),
+(7, 'Front Office', '2021-12-09 03:49:38', '2021-12-09 03:50:28'),
+(8, 'Petugas Kebersihan', '2021-12-09 03:49:38', '2021-12-09 03:50:28'),
+(9, 'Backend Developer', '2021-12-09 03:49:38', '2021-12-09 03:50:28');
 
 -- --------------------------------------------------------
 
@@ -87,7 +95,7 @@ CREATE TABLE `employees` (
   `salary` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'user.png'
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -95,9 +103,8 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `user_id`, `first_name`, `last_name`, `dob`, `sex`, `desg`, `department_id`, `join_date`, `salary`, `created_at`, `updated_at`, `photo`) VALUES
-(3, 9, 'Anul', 'Emp', '2000-12-09 00:00:00', 'Male', 'Manajer', '1', '2021-12-09 00:00:00', 220000.00, '2021-12-09 04:12:32', '2021-12-10 04:56:40', 'download_1639112200.png'),
-(4, 10, 'Muhammad', 'Rizky', '2000-12-09 00:00:00', 'Male', 'Staff', '1', '2021-12-09 00:00:00', 200000.00, '2021-12-09 07:26:16', '2021-12-09 07:26:16', 'download.png');
-
+(1, 1, 'Firyanul', 'Rizky', '2000-12-09 00:00:00', 'Male', 'Manajer', '1', '2021-12-09 00:00:00', 200000.00, '2021-12-09 07:26:16', '2021-12-09 07:26:16', 'download.png'),
+(2, 2, 'Anul', 'Emp', '2000-12-09 00:00:00', 'Male', 'Staff', '9', '2021-12-09 00:00:00', 220000.00, '2021-12-09 04:12:32', '2021-12-10 04:56:40', 'download_1639112200.png');
 -- --------------------------------------------------------
 
 --
@@ -121,9 +128,9 @@ CREATE TABLE `expenses` (
 --
 
 INSERT INTO `expenses` (`id`, `employee_id`, `reason`, `status`, `description`, `amount`, `receipt`, `created_at`, `updated_at`) VALUES
-(1, 3, 'Isolasi Mandiri', 'approved', 'Isolasi Mandiri', 14.00, '13.20 Visualisasi - Pola Transaksi - seleksi item merah 2_1639033270.PNG', '2021-12-09 04:31:10', '2021-12-09 04:32:06'),
-(2, 3, 'Cuti', 'pending', 'Cuti', 10.00, '13.26 Visualisasi - Persentase Line Riwayat Penghasilan_1639033446.PNG', '2021-12-09 04:34:06', '2021-12-09 04:34:06'),
-(3, 3, 'bulan madu', 'pending', 'bulan madu', 14.00, '13.29 Visualisasi - Persentase Line Riwayat Penghasilan - Proses per bulan_1639033469.PNG', '2021-12-09 04:34:29', '2021-12-09 04:34:29');
+(1, 2, 'Isolasi Mandiri', 'approved', 'Isolasi Mandiri', 14.00, '13.20 Visualisasi - Pola Transaksi - seleksi item merah 2_1639033270.PNG', '2021-12-09 04:31:10', '2021-12-09 04:32:06'),
+(2, 2, 'Cuti', 'pending', 'Cuti', 10.00, '13.26 Visualisasi - Persentase Line Riwayat Penghasilan_1639033446.PNG', '2021-12-09 04:34:06', '2021-12-09 04:34:06'),
+(3, 2, 'bulan madu', 'pending', 'bulan madu', 14.00, '13.29 Visualisasi - Persentase Line Riwayat Penghasilan - Proses per bulan_1639033469.PNG', '2021-12-09 04:34:29', '2021-12-09 04:34:29');
 
 -- --------------------------------------------------------
 
@@ -186,9 +193,9 @@ CREATE TABLE `leaves` (
 --
 
 INSERT INTO `leaves` (`id`, `employee_id`, `reason`, `description`, `half_day`, `start_date`, `end_date`, `status`, `created_at`, `updated_at`) VALUES
-(23, 3, 'Sakit', 'asasas', 'no', '2021-12-11 00:00:00', '2022-01-13 00:00:00', 'pending', '2021-12-10 02:17:58', '2021-12-10 02:17:58'),
-(24, 3, 'Sakit', 'Isolasi Mandiri', 'no', '2021-12-14 00:00:00', '2022-01-28 00:00:00', 'pending', '2021-12-10 02:18:10', '2021-12-10 03:36:40'),
-(25, 3, 'Cuti', 'Bulan Madu', 'no', '2021-12-07 00:00:00', '2022-01-05 00:00:00', 'ditolak', '2021-12-10 02:18:38', '2021-12-10 03:36:27');
+(1, 2, 'Sakit', 'asasas', 'no', '2021-12-11 00:00:00', '2022-01-13 00:00:00', 'pending', '2021-12-10 02:17:58', '2021-12-10 02:17:58'),
+(2, 2, 'Sakit', 'Isolasi Mandiri', 'no', '2021-12-14 00:00:00', '2022-01-28 00:00:00', 'pending', '2021-12-10 02:18:10', '2021-12-10 03:36:40'),
+(3, 2, 'Cuti', 'Bulan Madu', 'no', '2021-12-07 00:00:00', '2022-01-05 00:00:00', 'ditolak', '2021-12-10 02:18:38', '2021-12-10 03:36:27');
 
 -- --------------------------------------------------------
 
@@ -292,10 +299,7 @@ CREATE TABLE `role_user` (
 
 INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, '2021-12-09 05:14:00', '2021-12-09 05:14:00'),
-(2, 2, 3, NULL, NULL),
-(4, 2, 8, NULL, NULL),
-(5, 2, 9, NULL, NULL),
-(6, 2, 10, NULL, NULL);
+(2, 2, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -320,20 +324,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Firyanul Rizky', 'firyan2903@gmail.com', NULL, '$2y$10$qb6E6a9bURf7LQNLXSHe5Oub0VRoQirzGsT7ty2TwwSL4.0LjDjpi', 'eLlLD3f4NqSywHlcpZ49bYAIqDpLNL3gEaIGgb6mcFmz8cFj1Jin2FDyhEF2', '2021-12-09 02:16:16', '2021-12-09 02:16:16'),
-(3, 'Rizky Emp', 'anul@mail.com', NULL, '$2y$10$aI62xeoFxZQXVUAGzgziJOwD0ixVgjl4jhsvgkmwsm0.JWo4zJaku', 'fAgg5X2PiMa0rHCJljLeyi4XrgzLxB2Aif70oVsyHGFtGIIY8G62kWaM22cM', '2021-12-09 03:54:48', '2021-12-09 03:54:48'),
-(8, 'Anul Emp', 'anul2@mail.com', NULL, '$2y$10$wN5O1WMlRdDwY/Xgqf1vC.YOxu9Cyz3AS1AFV..4fUTFeXkpkJbgq', NULL, '2021-12-09 04:12:02', '2021-12-09 04:12:02'),
-(9, 'Anul Emp', 'anul29@mail.com', NULL, '$2y$10$m0gjjL9anL6IT.O2Es5yRuzmFxuGpWDvAXyxTtbOQGDuy9rIzcedW', 'qeLScd0NmaTXSQWcWVUV7Rp9EWASA48qLfNxh46gRSx5axgIcGNNAbOf10Nd', '2021-12-09 04:12:32', '2021-12-09 04:12:32'),
-(10, 'Muhammad Rizky', 'firyanulrizky@outlook.com', NULL, '$2y$10$MQ0QU2vDjWlieXynE.Boq.3tHbawqmYsCBrCmfKPspTbr..hmVLay', 'v7pn696On5cdNPUSb33ZLBFqvASee2RPJ2QmfL2RnnsdJD6zom4wkliF54vE', '2021-12-09 07:26:16', '2021-12-09 07:26:16'),
-(11, 'Udayana', 'udayana@mail.com', NULL, '$2y$10$jZ9zVJGRtH0ibYI3LPxVkedK8fsZNxXRp5V4OLkk6fdoaWl3VlOF.', NULL, '2021-12-09 23:26:18', '2021-12-09 23:26:18'),
-(12, 'Shinta', 'shin@mail.com', NULL, '$2y$10$xR0ACjCi9RMncc.wiwg7GO8VC9CycS13AClLfJmih5ljggxpuSUBO', NULL, '2021-12-09 23:47:13', '2021-12-09 23:47:13'),
-(13, 'test', 'test@mail.com', NULL, '$2y$10$aofq0ZvWSoDYiXJZKpBZDOZe0uXB0WkTlPpNBpwPycHNQ3LE/B9xi', NULL, '2021-12-09 23:58:03', '2021-12-09 23:58:03'),
-(14, 'test2', 'test2@mail.com', NULL, '$2y$10$YcIRIDHkJ.U6x5UHgYYoteacnJvr6FnfJmgZA/IwaYPy6m3aO.Vn2', NULL, '2021-12-09 23:59:22', '2021-12-09 23:59:22'),
-(15, 'test3', 'test3@mail.com', NULL, '$2y$10$mZqV9HWLavWS2CVcdHQjded..ZWQnyiRSJB.57VtZM2pfgmNaOnl6', NULL, '2021-12-10 00:00:11', '2021-12-10 00:00:11'),
-(16, 'test4', 'test4@mail.com', NULL, '$2y$10$ONXsqIQFmIifgqv7gARzoOiHe4KhgPv8aMMp1ZiiOIsuxC/mPeUN6', NULL, '2021-12-10 00:04:39', '2021-12-10 00:04:39'),
-(17, 'test5', 'test5@mail.com', NULL, '$2y$10$ub92c498yZ2gxOkKAxcqROGcDo2dX0rNk4kwUlXVvaSF9Qx0BjHUK', '7xLCs9d8Nd35cMYSx9YllfWlwBcZgJ6u900ObG2O1QHbw4a0BL4IGA1VVEwR', '2021-12-10 00:05:41', '2021-12-10 00:05:41'),
-(18, 'test6', 'test6@mail.com', NULL, '$2y$10$MQB4e1Leoq.isVGpXFDJ.ehwNYLMHFitKHfWHl6QCm/L4nhEll87y', NULL, '2021-12-10 00:11:33', '2021-12-10 00:11:33'),
-(19, 'test7', 'test7@mail.com', NULL, '$2y$10$h2rxb8dCDYa/UITbdYzLuOBpnhnU2Y5KzysBltrZ/hXs5MAr9zsiu', NULL, '2021-12-10 00:24:55', '2021-12-10 00:24:55'),
-(20, 'firyanul', '$2y$10$gIXVXKpd7ztC1n2cHMsisulWybfLFqVE7HZ5zsjZw6yuSjuTIwGhq', NULL, '$2y$10$LCJAveTlBFIh/vBFWClrG.ur8YqkK3Z4YykLBbPJwXNimRom2KWWm', NULL, '2021-12-10 05:24:55', '2021-12-10 05:24:55');
+(2, 'Anul Emp', 'anul29@mail.com', NULL, '$2y$10$m0gjjL9anL6IT.O2Es5yRuzmFxuGpWDvAXyxTtbOQGDuy9rIzcedW', 'qeLScd0NmaTXSQWcWVUV7Rp9EWASA48qLfNxh46gRSx5axgIcGNNAbOf10Nd', '2021-12-09 04:12:32', '2021-12-09 04:12:32');
 
 --
 -- Indexes for dumped tables
