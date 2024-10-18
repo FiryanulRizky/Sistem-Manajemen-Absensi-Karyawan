@@ -9,6 +9,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use App\User;
 
 class EmployeeController extends Controller
 {
@@ -44,6 +45,8 @@ class EmployeeController extends Controller
             'photo' => 'image|nullable'
         ]);
         $employee = Employee::findOrFail($employee_id);
+        $user_employee = User::find($employee->user_id);
+        $user_employee->name = ''.$request->first_name.' '.$request->last_name.'';
         $employee->first_name = $request->first_name;
         $employee->last_name = $request->last_name;
         $employee->dob = $request->dob;
@@ -77,6 +80,7 @@ class EmployeeController extends Controller
             $employee->photo = $filename_store;
         }
         $employee->save();
+        $user_employee->save();
         $request->session()->flash('success', 'Profil Anda Berhasil diupdate !');
         return redirect()->route('employee.profile');
     }

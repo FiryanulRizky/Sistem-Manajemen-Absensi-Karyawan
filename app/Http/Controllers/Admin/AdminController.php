@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Gate;
 use Intervention\Image\ImageManagerStatic as Image;
 use App\Employee;
 use App\Department;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -56,6 +57,8 @@ class AdminController extends Controller
             'photo' => 'image|nullable'
         ]);
         $admin = Employee::findOrFail($admin_id);
+        $user_admin = User::find($admin->user_id);
+        $user_admin->name = ''.$request->first_name.' '.$request->last_name.'';
         $admin->first_name = $request->first_name;
         $admin->last_name = $request->last_name;
         $admin->dob = $request->dob;
@@ -89,6 +92,7 @@ class AdminController extends Controller
             $admin->photo = $filename_store;
         }
         $admin->save();
+        $user_admin->save();
         $request->session()->flash('success', 'Profil Anda Berhasil diupdate !');
         return back();
     }
