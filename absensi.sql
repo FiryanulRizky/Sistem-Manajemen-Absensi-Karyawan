@@ -84,7 +84,7 @@ CREATE TABLE `employees` (
   `desg` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `department_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `join_date` datetime NOT NULL,
-  `salary` double(8,2) NOT NULL,
+  `salary` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'user.png'
