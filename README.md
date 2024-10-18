@@ -21,9 +21,6 @@ NOTE : Penambahan admin selain melalui menu register bisa dilakukan juga menggun
 1. lakukan perintah php artisan tinker, lalu buat variabel baru $emp = new App\Employee
 2. selanjutnya ikuti petunjuk pada screenshot paling bawah untuk menambahkan elemen 'user_id', 'first_name', 'last_name', 'sex', 'dob', 'join_date', 'desg', 'department_id', 'salary', 'photo'
 
-TAMBAHKAN FOLDER : storage/employee_photos
-pada direktori publik untuk menunjang fitur upload dan penyimpanan gambar/images
-
 # Berikut adalah ketentuan yang sudah terpenuhi :
 # 1. Menggambarkan flow diagram / usecase diagram sederhana yang menggambarkan fitur sistem
 ![Catatan 2  Use Case Diagram](https://user-images.githubusercontent.com/60762912/145530391-7a20f130-c3ee-456a-93d6-707f64d82a69.png)

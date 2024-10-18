@@ -1,7 +1,5 @@
 <?php
 
-namespace Database\Seeders;
-
 use App\Attendance;
 use App\Department;
 use \DateTime as DateTime;
