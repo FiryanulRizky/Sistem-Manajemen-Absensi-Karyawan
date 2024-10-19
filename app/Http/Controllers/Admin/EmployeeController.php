@@ -106,7 +106,12 @@ class EmployeeController extends Controller
     }
 
     public function attendanceByDate($date) {
-        $employees = DB::table('employees')->select('id', 'first_name', 'last_name', 'desg', 'department_id')->get();
+        $employees = DB::table('employees as e')
+        ->leftJoin('users as u','e.user_id','u.id')
+        ->leftJoin('role_user as ru','u.id','ru.user_id')
+        ->select('e.id', 'e.first_name', 'e.last_name', 'e.desg', 'e.department_id')
+        ->where('ru.role_id','2')
+        ->get();
         $attendances = Attendance::all()->filter(function($attendance, $key) use ($date){
             return $attendance->created_at->dayOfYear == $date->dayOfYear;
         });
