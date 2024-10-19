@@ -93,7 +93,7 @@ class UsersTableSeeder extends Seeder
         ]);
         $admin = Employee::create([
             'user_id' => 2,
-            'first_name' => 'Admin',
+            'first_name' => 'Manajemen',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
             'sex' => 'Male',

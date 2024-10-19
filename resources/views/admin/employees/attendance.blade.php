@@ -107,8 +107,7 @@
                                         <td><h6 class="text-center"><span class="badge badge-pill badge-danger">Belum Ada Riwayat</span></h6></td>
                                         <td><h6 class="text-center"><span class="badge badge-pill badge-danger">Belum Ada Riwayat</span></h6></td>
                                     @endif
-                                    <td>{{ $employee->attendanceToday->entry_location ?? '-' }}
-                                    </td>
+                                    <td>{{ $employee->attendanceToday->entry_location ?? '-' }}</td>
                                     <td>{{ $employee->desg }}</td>
                                     <td>
                                         @if($employee->attendanceToday)
