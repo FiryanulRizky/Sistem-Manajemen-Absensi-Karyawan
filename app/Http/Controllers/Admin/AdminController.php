@@ -24,10 +24,13 @@ class AdminController extends Controller
     }
 
     public function update_password(Request $request) {
-        $user = Auth::user();
-        dd($user->password);
-        if($user->password == Hash::make($request->old_password)) {
-            dd($request->all());
+        $user = User::findOrFail(Auth::user()->id);
+        if(Hash::check($request->old_password,$user->password)===true) {
+            $user->password = Hash::make($request->password);
+            $request->session()->flash('success', 'Password Berhasil di Update');
+            $user->save();
+            // return view('auth.reset-password');
+            return back();
         } else {
             $request->session()->flash('error', 'Password Salah');
             return back();

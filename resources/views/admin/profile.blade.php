@@ -84,6 +84,7 @@
                     </div>
                     <div class="card-footer text-center">
                         <a href="{{ route('admin.profile-edit', $admin->id) }}" class="btn btn-flat btn-primary">Edit Profil</a>
+                        <a href="{{ route('admin.reset-password') }}" class="btn btn-danger btn-danger">Ganti Password</a>
                     </div>
                 </div>
             </div>

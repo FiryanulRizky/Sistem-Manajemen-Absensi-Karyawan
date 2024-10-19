@@ -69,6 +69,8 @@ Route::namespace('Employee')->prefix('employee')->name('employee.')->middleware(
     Route::get('/profile', 'EmployeeController@profile')->name('profile');
     Route::get('/profile-edit/{employee_id}', 'EmployeeController@profile_edit')->name('profile-edit');
     Route::put('/profile/{employee_id}', 'EmployeeController@profile_update')->name('profile-update');
+    Route::get('/reset-password', 'EmployeeController@reset_password')->name('reset-password');
+    Route::put('/update-password', 'EmployeeController@update_password')->name('update-password');
     // Routes for Attendances //
     Route::get('/attendance/list-attendances', 'AttendanceController@index')->name('attendance.index');
     Route::post('/attendance/list-attendances', 'AttendanceController@index')->name('attendance.index');

@@ -36,12 +36,16 @@
                     <div class="card-header">
                         <h5 class="text-center">Reset Pasword</h5>
                     </div>
+                    @if(Auth::user()->roles[0]['id'] == 1)
                     <form action="{{ route('admin.update-password') }}" method="POST">
+                    @else
+                    <form action="{{ route('employee.update-password') }}" method="POST">
+                    @endif
                     @csrf
                     @method('PUT')
                     <div class="card-body">
                         <div class="input-group mb-3">
-                            <input type="password" name="old_password" class="form-control" placeholder="Current Password">
+                            <input type="password" name="old_password" class="form-control" placeholder="Password Saat ini">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
@@ -50,11 +54,15 @@
                         </div>
                         @if (session('error'))
                                 <div class="text-danger">
-                                    Wrong Password
+                                    Password Salah
+                                </div>
+                        @elseif(session('success'))
+                                <div class="text-success">
+                                    Password Berhasil di Update
                                 </div>
                         @endif
                         <div class="input-group mb-3">
-                            <input type="password" name="password" class="form-control" placeholder="New Password">
+                            <input type="password" name="password" class="form-control" placeholder="Password Baru">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
@@ -63,7 +71,7 @@
                             
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password">
+                            <input type="password" name="password_confirmation" class="form-control" placeholder="Konfirmasi Password Baru">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>

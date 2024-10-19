@@ -53,8 +53,6 @@
                     <a href="{{ route('employee.profile') }}" class="btn btn-default btn-flat">Profil Karyawan</a>
                     @elseif(Auth::user()->roles[0]['id'] == 1)
                     <a href="{{ route('admin.profile', Auth::user()->employee->id) }}" class="btn btn-default btn-flat">Profil Admin</a>
-                    @else
-                    <a href="{{ route('admin.reset-password') }}" class="btn btn-default btn-flat">Ganti Password</a>
                     @endif
                 </div>
                 <div class="pull-right">

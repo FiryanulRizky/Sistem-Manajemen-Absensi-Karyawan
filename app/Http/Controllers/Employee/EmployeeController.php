@@ -9,6 +9,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class EmployeeController extends Controller
@@ -83,5 +84,23 @@ class EmployeeController extends Controller
         $user_employee->save();
         $request->session()->flash('success', 'Profil Anda Berhasil diupdate !');
         return redirect()->route('employee.profile');
+    }
+
+    public function reset_password() {
+        return view('auth.reset-password');
+    }
+
+    public function update_password(Request $request) {
+        $user = User::findOrFail(Auth::user()->id);
+        if(Hash::check($request->old_password,$user->password)===true) {
+            $user->password = Hash::make($request->password);
+            $request->session()->flash('success', 'Password Berhasil di Update');
+            $user->save();
+            // return view('auth.reset-password');
+            return back();
+        } else {
+            $request->session()->flash('error', 'Password Salah');
+            return back();
+        }
     }
 }
