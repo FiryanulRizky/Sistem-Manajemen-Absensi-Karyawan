@@ -10,8 +10,12 @@ Ketentuan demo aplikasi :
    - dengan seeder : jalankan php artisan migrate:fresh --seed
    - import data absensi.sql yang sudah disediakan
    - dengan eloquent orm
-3. masuk sesi admin dengan email firyan2903@gmail.com dan password : 123
-4. masuk sesi karyawan dengan email anul29@mail.com dan password :123456
+3. masuk sesi admin
+   - email firyan2903@gmail.com dan password : 123
+   - email admin@gmail.com dan password : pw111018
+4. masuk sesi karyawan
+   - email anul29@mail.com dan password :123456
+   - email (sesuai data seeder : Perawat s/d Petugas Kebersihan) => password (semua akun sama) : petugas123
 
 Update Aplikasi :
 1. Fitur Register Admin terdapat pada awal sesi sebelum login

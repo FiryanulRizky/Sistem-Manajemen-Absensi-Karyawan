@@ -101,7 +101,7 @@ class UsersTableSeeder extends Seeder
             'department_id' => 1,
             'join_date' => $join->format('Y-m-d'),
             'salary' => 6500000,
-            'photo' => 'admin.png'
+            'photo' => 'manajemen.png'
         ]);
         $employee = Employee::create([
             'user_id' => 3,
