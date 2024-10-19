@@ -42,6 +42,11 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('123456')
         ]);
         $employee = User::create([
+            'name' => 'Manajemen',
+            'email' => 'manajemen@gmail.com',
+            'password' => Hash::make('petugas123')
+        ]);
+        $employee = User::create([
             'name' => 'Perawat',
             'email' => 'perawat@gmail.com',
             'password' => Hash::make('petugas123')
@@ -93,7 +98,7 @@ class UsersTableSeeder extends Seeder
         ]);
         $admin = Employee::create([
             'user_id' => 2,
-            'first_name' => 'Manajemen',
+            'first_name' => 'Admin',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
             'sex' => 'Male',
@@ -101,7 +106,7 @@ class UsersTableSeeder extends Seeder
             'department_id' => 1,
             'join_date' => $join->format('Y-m-d'),
             'salary' => 6500000,
-            'photo' => 'manajemen.png'
+            'photo' => 'admin.png'
         ]);
         $employee = Employee::create([
             'user_id' => 3,
@@ -117,6 +122,18 @@ class UsersTableSeeder extends Seeder
         ]);
         $employee = Employee::create([
             'user_id' => 4,
+            'first_name' => 'Manajemen',
+            'last_name' => '',
+            'dob' => $dob->format('Y-m-d'),
+            'sex' => 'Male',
+            'desg' => 'Manager',
+            'department_id' => 1,
+            'join_date' => $join->format('Y-m-d'),
+            'salary' => 6500000,
+            'photo' => 'manajemen.png'
+        ]);
+        $employee = Employee::create([
+            'user_id' => 5,
             'first_name' => 'Perawat',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
@@ -125,10 +142,10 @@ class UsersTableSeeder extends Seeder
             'department_id' => '2',
             'join_date' => $join->format('Y-m-d'),
             'salary' => 300000,
-            'photo' => 'bidan.png'
+            'photo' => 'perawat.png'
         ]);
         $employee = Employee::create([
-            'user_id' => 5,
+            'user_id' => 6,
             'first_name' => 'Bidan',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
@@ -140,7 +157,7 @@ class UsersTableSeeder extends Seeder
             'photo' => 'bidan.png'
         ]);
         $employee = Employee::create([
-            'user_id' => 6,
+            'user_id' => 7,
             'first_name' => 'Dokter',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
@@ -152,7 +169,7 @@ class UsersTableSeeder extends Seeder
             'photo' => 'dokter.png'
         ]);
         $employee = Employee::create([
-            'user_id' => 7,
+            'user_id' => 8,
             'first_name' => 'Kasir',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
@@ -164,7 +181,7 @@ class UsersTableSeeder extends Seeder
             'photo' => 'kasir.png'
         ]);
         $employee = Employee::create([
-            'user_id' => 8,
+            'user_id' => 9,
             'first_name' => 'Farmasi',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
@@ -176,7 +193,7 @@ class UsersTableSeeder extends Seeder
             'photo' => 'farmasi.png'
         ]);
         $employee = Employee::create([
-            'user_id' => 9,
+            'user_id' => 10,
             'first_name' => 'Front',
             'last_name' => 'Office',
             'dob' => $dob->format('Y-m-d'),
@@ -188,9 +205,9 @@ class UsersTableSeeder extends Seeder
             'photo' => 'front_office.png'
         ]);
         $employee = Employee::create([
-            'user_id' => 10,
-            'first_name' => 'Petugas Kebersihan',
-            'last_name' => '',
+            'user_id' => 11,
+            'first_name' => 'Petugas',
+            'last_name' => 'Kebersihan',
             'dob' => $dob->format('Y-m-d'),
             'sex' => 'Female',
             'desg' => 'Staff',
