@@ -91,16 +91,23 @@
                                         <td>
                                             Terekam sejak {{ $employee->attendanceToday->created_at->format('H:i:s') }} dari {{ $employee->attendanceToday->entry_location}} dengan alamat IP {{ $employee->attendanceToday->entry_ip}}
                                         </td>
-                                        <?php if($employee->attendanceToday->time<=9 && $employee->attendanceToday->time>=7) { ?>
+                                        @if($employee->attendanceToday->time<=9 && $employee->attendanceToday->time>=7)
                                             <td><h6 class="text-center"><span class="badge badge-pill badge-success">Hadir Tepat Waktu</span></h6></td>
-                                        <?php } elseif ($employee->attendanceToday->time>9 && $employee->attendanceToday->time<=17) {
-                                            ?><td><h6 class="text-center"><span class="badge badge-pill badge-warning">Hadir Terlambat</span></h6></td><?php
-                                        } else {
-                                           ?><td><h6 class="text-center"><span class="badge badge-pill badge-danger">Absensi Tidak Valid</span></h6></td><?php 
-                                        } ?>
+                                        @elseif ($employee->attendanceToday->time>9 && $employee->attendanceToday->time<=17)
+                                            <td><h6 class="text-center"><span class="badge badge-pill badge-warning">Hadir Terlambat</span></h6></td>
+                                        @else
+                                           ?><td><h6 class="text-center"><span class="badge badge-pill badge-danger">Absensi Tidak Valid</span></h6></td>
+                                        @endif
+
+                                        @if(!empty($employee->attendanceToday->exit_location))
                                             <td>
                                                 Terekam sejak {{ $employee->attendanceToday->updated_at->format('H:i:s') }} dari {{ $employee->attendanceToday->exit_location}} dengan alamat IP {{ $employee->attendanceToday->exit_ip}}
                                             </td>
+                                        @else
+                                            <td>
+                                                <h6 class="text-center"><span class="badge badge-pill badge-danger">Belum Ada Riwayat</span></h6></td>
+                                            </td>
+                                        @endif
                                     @else
                                         <td><h6 class="text-center"><span class="badge badge-pill badge-danger">Belum Ada Riwayat</span></h6></td>
                                         <td><h6 class="text-center"><span class="badge badge-pill badge-danger">Belum Ada Riwayat</span></h6></td>
