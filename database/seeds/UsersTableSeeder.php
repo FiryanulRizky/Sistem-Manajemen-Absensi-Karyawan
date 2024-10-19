@@ -3,7 +3,6 @@
 use App\Attendance;
 use App\Department;
 use \DateTime as DateTime;
-use App\Role;
 use App\User;
 use App\Employee;
 use Carbon\Carbon;
@@ -25,13 +24,16 @@ class UsersTableSeeder extends Seeder
         DB::table('employees')->truncate();
         DB::table('departments')->truncate();
         DB::table('attendances')->truncate();
-        $employeeRole = Role::where('name', 'employee')->first();
-        $adminRole =  Role::where('name', 'admin')->first();
 
         $admin = User::create([
             'name' => 'Firyanul Rizky',
             'email' => 'firyan2903@gmail.com',
             'password' => Hash::make('123')
+        ]);
+        $admin = User::create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('pw111018')
         ]);
 
         $employee = User::create([
@@ -39,12 +41,44 @@ class UsersTableSeeder extends Seeder
             'email' => 'anul29@mail.com',
             'password' => Hash::make('123456')
         ]);
+        $employee = User::create([
+            'name' => 'Perawat',
+            'email' => 'perawat@gmail.com',
+            'password' => Hash::make('petugas123')
+        ]);
+        $employee = User::create([
+            'name' => 'Bidan',
+            'email' => 'bidan@gmail.com',
+            'password' => Hash::make('petugas123')
+        ]);
+        $employee = User::create([
+            'name' => 'Dokter',
+            'email' => 'dokter@gmail.com',
+            'password' => Hash::make('petugas123')
+        ]);
+        $employee = User::create([
+            'name' => 'Kasir',
+            'email' => 'kasir@gmail.com',
+            'password' => Hash::make('petugas123')
+        ]);
+        $employee = User::create([
+            'name' => 'Farmasi',
+            'email' => 'farmasi@gmail.com',
+            'password' => Hash::make('petugas123')
+        ]);
+        $employee = User::create([
+            'name' => 'Front Office',
+            'email' => 'front_office@gmail.com',
+            'password' => Hash::make('petugas123')
+        ]);
+        $employee = User::create([
+            'name' => 'Petugas Kebersihan',
+            'email' => 'petugas_kebersihan@gmail.com',
+            'password' => Hash::make('petugas123')
+        ]);
 
-        // 
-        $employee->roles()->attach($employeeRole);
         $dob = new DateTime('1999-03-29');
         $join = new DateTime('2021-09-15');
-        $admin->roles()->attach($adminRole);
         $admin = Employee::create([
             'user_id' => $admin->id,
             'first_name' => 'Firyanul',
@@ -57,6 +91,18 @@ class UsersTableSeeder extends Seeder
             'salary' => 6500000,
             'photo' => 'download.png'
         ]);
+        $admin = Employee::create([
+            'user_id' => $admin->id,
+            'first_name' => 'Admin',
+            'last_name' => '',
+            'dob' => $dob->format('Y-m-d'),
+            'sex' => 'Male',
+            'desg' => 'Manager',
+            'department_id' => '1',
+            'join_date' => $join->format('Y-m-d'),
+            'salary' => 6500000,
+            'photo' => 'admin.png'
+        ]);
         $employee = Employee::create([
             'user_id' => $employee->id,
             'first_name' => 'Anul',
@@ -68,6 +114,90 @@ class UsersTableSeeder extends Seeder
             'join_date' => $join->format('Y-m-d'),
             'salary' => 300000,
             'photo' => 'download_1639112200.png'
+        ]);
+        $employee = Employee::create([
+            'user_id' => $employee->id,
+            'first_name' => 'Perawat',
+            'last_name' => '',
+            'dob' => $dob->format('Y-m-d'),
+            'sex' => 'Female',
+            'desg' => 'Staff',
+            'department_id' => '2',
+            'join_date' => $join->format('Y-m-d'),
+            'salary' => 300000,
+            'photo' => 'bidan.png'
+        ]);
+        $employee = Employee::create([
+            'user_id' => $employee->id,
+            'first_name' => 'Bidan',
+            'last_name' => '',
+            'dob' => $dob->format('Y-m-d'),
+            'sex' => 'Female',
+            'desg' => 'Staff',
+            'department_id' => '3',
+            'join_date' => $join->format('Y-m-d'),
+            'salary' => 300000,
+            'photo' => 'bidan.png'
+        ]);
+        $employee = Employee::create([
+            'user_id' => $employee->id,
+            'first_name' => 'Dokter',
+            'last_name' => '',
+            'dob' => $dob->format('Y-m-d'),
+            'sex' => 'Female',
+            'desg' => 'Staff',
+            'department_id' => '4',
+            'join_date' => $join->format('Y-m-d'),
+            'salary' => 300000,
+            'photo' => 'dokter.png'
+        ]);
+        $employee = Employee::create([
+            'user_id' => $employee->id,
+            'first_name' => 'Kasir',
+            'last_name' => '',
+            'dob' => $dob->format('Y-m-d'),
+            'sex' => 'Female',
+            'desg' => 'Staff',
+            'department_id' => '5',
+            'join_date' => $join->format('Y-m-d'),
+            'salary' => 300000,
+            'photo' => 'kasir.png'
+        ]);
+        $employee = Employee::create([
+            'user_id' => $employee->id,
+            'first_name' => 'Farmasi',
+            'last_name' => '',
+            'dob' => $dob->format('Y-m-d'),
+            'sex' => 'Female',
+            'desg' => 'Staff',
+            'department_id' => '6',
+            'join_date' => $join->format('Y-m-d'),
+            'salary' => 300000,
+            'photo' => 'farmasi.png'
+        ]);
+        $employee = Employee::create([
+            'user_id' => $employee->id,
+            'first_name' => 'Front',
+            'last_name' => 'Office',
+            'dob' => $dob->format('Y-m-d'),
+            'sex' => 'Male',
+            'desg' => 'Staff',
+            'department_id' => '7',
+            'join_date' => $join->format('Y-m-d'),
+            'salary' => 300000,
+            'photo' => 'front_office.png'
+        ]);
+        $employee = Employee::create([
+            'user_id' => $employee->id,
+            'first_name' => 'Petugas Kebersihan',
+            'last_name' => '',
+            'dob' => $dob->format('Y-m-d'),
+            'sex' => 'Female',
+            'desg' => 'Staff',
+            'department_id' => '8',
+            'join_date' => $join->format('Y-m-d'),
+            'salary' => 300000,
+            'photo' => 'petugas_kebersihan.png'
         ]);
 
         Department::create(['name' => 'Manajemen']);
@@ -83,8 +213,24 @@ class UsersTableSeeder extends Seeder
         // Attendance seeder
         $create = Carbon::create(2021, 8, 17, 10, 00, 23, 'Asia/Jakarta');
         $update = Carbon::create(2021, 8, 17, 17, 00, 23, 'Asia/Jakarta');
+
+        for($j=1;$j<=$admin->id;$j++) {
+            DB::table('role_user')->insert([
+                'role_id' => 1,
+                'user_id' => $j
+            ]);
+        }
+        
+        for($i=3;$i<=$employee->id;$i++) {
+            DB::table('role_user')->insert([
+                'role_id' => 2,
+                'user_id' => $i
+            ]);
+        }
+
+        for($k=3;$k<=$employee->id;$k++) { 
             $attendance = Attendance::create([
-                'employee_id' => $employee->id,
+                'employee_id' => $k,
                 'entry_ip' => '127.0.0.1',
                 'entry_location' => '',
                 'created_at' => $create
@@ -96,5 +242,6 @@ class UsersTableSeeder extends Seeder
             $attendance->save();
             $create->addDay();
             $update->addDay();
+        }
     }
 }
