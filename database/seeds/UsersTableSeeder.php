@@ -80,43 +80,43 @@ class UsersTableSeeder extends Seeder
         $dob = new DateTime('1999-03-29');
         $join = new DateTime('2021-09-15');
         $admin = Employee::create([
-            'user_id' => $admin->id,
+            'user_id' => 1,
             'first_name' => 'Firyanul',
             'last_name' => 'Rizky',
             'dob' => $dob->format('Y-m-d'),
             'sex' => 'Male',
             'desg' => 'Manager',
-            'department_id' => '1',
+            'department_id' => 1,
             'join_date' => $join->format('Y-m-d'),
             'salary' => 6500000,
             'photo' => 'download.png'
         ]);
         $admin = Employee::create([
-            'user_id' => $admin->id,
+            'user_id' => 2,
             'first_name' => 'Admin',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
             'sex' => 'Male',
             'desg' => 'Manager',
-            'department_id' => '1',
+            'department_id' => 1,
             'join_date' => $join->format('Y-m-d'),
             'salary' => 6500000,
             'photo' => 'admin.png'
         ]);
         $employee = Employee::create([
-            'user_id' => $employee->id,
+            'user_id' => 3,
             'first_name' => 'Anul',
             'last_name' => 'Emp',
             'dob' => $dob->format('Y-m-d'),
             'sex' => 'Male',
             'desg' => 'Staff',
-            'department_id' => '9',
+            'department_id' => 9,
             'join_date' => $join->format('Y-m-d'),
             'salary' => 300000,
             'photo' => 'download_1639112200.png'
         ]);
         $employee = Employee::create([
-            'user_id' => $employee->id,
+            'user_id' => 4,
             'first_name' => 'Perawat',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
@@ -128,7 +128,7 @@ class UsersTableSeeder extends Seeder
             'photo' => 'bidan.png'
         ]);
         $employee = Employee::create([
-            'user_id' => $employee->id,
+            'user_id' => 5,
             'first_name' => 'Bidan',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
@@ -140,7 +140,7 @@ class UsersTableSeeder extends Seeder
             'photo' => 'bidan.png'
         ]);
         $employee = Employee::create([
-            'user_id' => $employee->id,
+            'user_id' => 6,
             'first_name' => 'Dokter',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
@@ -152,7 +152,7 @@ class UsersTableSeeder extends Seeder
             'photo' => 'dokter.png'
         ]);
         $employee = Employee::create([
-            'user_id' => $employee->id,
+            'user_id' => 7,
             'first_name' => 'Kasir',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
@@ -164,7 +164,7 @@ class UsersTableSeeder extends Seeder
             'photo' => 'kasir.png'
         ]);
         $employee = Employee::create([
-            'user_id' => $employee->id,
+            'user_id' => 8,
             'first_name' => 'Farmasi',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
@@ -176,7 +176,7 @@ class UsersTableSeeder extends Seeder
             'photo' => 'farmasi.png'
         ]);
         $employee = Employee::create([
-            'user_id' => $employee->id,
+            'user_id' => 9,
             'first_name' => 'Front',
             'last_name' => 'Office',
             'dob' => $dob->format('Y-m-d'),
@@ -188,7 +188,7 @@ class UsersTableSeeder extends Seeder
             'photo' => 'front_office.png'
         ]);
         $employee = Employee::create([
-            'user_id' => $employee->id,
+            'user_id' => 10,
             'first_name' => 'Petugas Kebersihan',
             'last_name' => '',
             'dob' => $dob->format('Y-m-d'),
@@ -220,7 +220,7 @@ class UsersTableSeeder extends Seeder
                 'user_id' => $j
             ]);
         }
-        
+
         for($i=3;$i<=$employee->id;$i++) {
             DB::table('role_user')->insert([
                 'role_id' => 2,

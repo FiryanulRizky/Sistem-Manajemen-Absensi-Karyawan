@@ -107,14 +107,8 @@
                                         <td><h6 class="text-center"><span class="badge badge-pill badge-danger">Belum Ada Riwayat</span></h6></td>
                                         <td><h6 class="text-center"><span class="badge badge-pill badge-danger">Belum Ada Riwayat</span></h6></td>
                                     @endif
-                                    <td>
-                                    <?php 
-                                    $conn = mysqli_connect("localhost","root","","absensi");
-                                    $loc2=mysqli_query($conn,"SELECT * FROM attendances"); 
-                                    while($loc=mysqli_fetch_array($loc2)) {
-                                    if(!empty($loc['entry_location'])) { 
-                                        echo $loc['entry_location']; 
-                                    } else { echo " - ";} }?></td>
+                                    <td>{{ $employee->attendanceToday->entry_location ?? '-' }}
+                                    </td>
                                     <td>{{ $employee->desg }}</td>
                                     <td>
                                         @if($employee->attendanceToday)
