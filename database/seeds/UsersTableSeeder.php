@@ -254,7 +254,7 @@ class UsersTableSeeder extends Seeder
             ]);
             $attendance->exit_ip = '127.0.0.1';
             $attendance->exit_location = '';
-            $attendance->registered = 'yes';
+            $attendance->registered = 'ya';
             $attendance->updated_at = $update;
             $attendance->save();
             $create->addDay();

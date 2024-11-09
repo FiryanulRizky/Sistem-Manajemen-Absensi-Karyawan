@@ -68,15 +68,15 @@
                                 <div class="form-group">
                                     <label>Lebih dari Sehari ?</label>
                                     <select class="form-control" name="multiple-days" onchange="showDate()">
-                                        <option value="yes" selected>Ya</option>
-                                        <option value="no">Tidak</option>
+                                        <option value="ya" selected>Ya</option>
+                                        <option value="tidak">Tidak</option>
                                     </select>
                                 </div>
                                 <div class="form-group hide-input" id="half-day">
                                     <label>Setengah Jam Kerja</label>
                                     <select class="form-control" name="half-day">
-                                        <option value="no">Tidak</option>
-                                        <option value="yes">Ya</option>
+                                        <option value="tidak">Tidak</option>
+                                        <option value="ya">Ya</option>
                                     </select>
                                 </div>
                                 <div class="form-group" id="range-group">

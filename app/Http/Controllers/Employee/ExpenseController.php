@@ -85,7 +85,7 @@ class ExpenseController extends Controller
         $expense->reason = $request->reason;
         $expense->description = $request->description;
         $expense->amount = $request->amount;
-        if (($request->new_image == 'yes') && $request->hasFile('receipt')) {
+        if (($request->new_image == 'ya') && $request->hasFile('receipt')) {
             // Deleting the old image
             $old_filepath = public_path(DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.'receipts'.DIRECTORY_SEPARATOR. $expense->receipt);
             if(file_exists($old_filepath)) {

@@ -55,8 +55,8 @@
                                 <div class="form-group">
                                     <label for="">Lebih Dari Sehari ?</label>
                                     <select name="multiple-days" class="form-control" onchange="showInput()">
-                                        <option value="no">Tidak</option>
-                                        <option value="yes">Ya</option>
+                                        <option value="tidak">Tidak</option>
+                                        <option value="ya">Ya</option>
                                     </select>
                                 </div>
                                 <div class="form-group" id="single-date">

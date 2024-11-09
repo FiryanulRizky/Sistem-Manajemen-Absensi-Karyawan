@@ -78,8 +78,8 @@
                                 <div class="form-group">
                                     <label for="">Re-upload the receipt image</label>
                                     <select name="new_image" class="form-control" id="" onchange="showInput()">
-                                        <option value="no" selected>No</option>
-                                        <option value="yes">Yes</option>
+                                        <option value="tidak" selected>Tidak</option>
+                                        <option value="ya">Ya</option>
                                     </select>
                                 </div>
                                 <div class="form-group hide-input" id="file">

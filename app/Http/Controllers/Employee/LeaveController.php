@@ -49,7 +49,7 @@ class LeaveController extends Controller
         $data = [
             'employee' => Auth::user()->employee
         ];
-        if($request->input('multiple-days') == 'yes') {
+        if($request->input('multiple-days') == 'ya') {
             $this->validate($request, [
                 'reason' => 'required',
                 'description' => 'required',
@@ -68,7 +68,7 @@ class LeaveController extends Controller
             'description' => $request->input('description'),
             'half_day' => $request->input('half-day')
         ];
-        if($request->input('multiple-days') == 'yes') {
+        if($request->input('multiple-days') == 'ya') {
             [$start, $end] = explode(' - ', $request->input('date_range'));
             $values['start_date'] = Carbon::parse($start);
             $values['end_date'] = Carbon::parse($end);
@@ -88,7 +88,7 @@ class LeaveController extends Controller
     public function update(Request $request, $leave_id) {
         $leave = Leave::findOrFail($leave_id);
         Gate::authorize('employee-leaves-access', $leave);
-        if($request->input('multiple-days') == 'yes') {
+        if($request->input('multiple-days') == 'ya') {
             $this->validate($request, [
                 'reason' => 'required',
                 'description' => 'required',
@@ -104,7 +104,7 @@ class LeaveController extends Controller
         $leave->reason = $request->reason;
         $leave->description = $request->description;
         $leave->half_day = $request->input('half-day');
-        if($request->input('multiple-days') == 'yes') {
+        if($request->input('multiple-days') == 'ya') {
             [$start, $end] = explode(' - ', $request->input('date_range'));
             $start = Carbon::parse($start);
             $end = Carbon::parse($end);

@@ -54,7 +54,7 @@ class AttendanceController extends Controller
             if($last_attendance->created_at->format('d') == Carbon::now()->format('d')){
                 $data['attendance'] = $last_attendance;
                 if($last_attendance->registered)
-                    $data['registered_attendance'] = 'yes';
+                    $data['registered_attendance'] = 'ya';
             }
         }
         return view('employee.attendance.create')->with($data);   
@@ -82,7 +82,7 @@ class AttendanceController extends Controller
         $attendance = Attendance::findOrFail($attendance_id);
         $attendance->exit_ip = $request->ip();
         $attendance->exit_location = $request->exit_location;
-        $attendance->registered = 'yes';
+        $attendance->registered = 'ya';
         $attendance->save();
         $request->session()->flash('success', 'Absensi Anda berhasil diakhiri');
         return redirect()->route('employee.attendance.create')->with('employee', Auth::user()->employee);

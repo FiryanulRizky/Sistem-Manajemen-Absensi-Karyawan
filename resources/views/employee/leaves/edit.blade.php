@@ -66,15 +66,15 @@
                                     <div class="form-group">
                                         <label>Lebih dari satu hari ?</label>
                                         <select class="form-control" name="multiple-days" onchange="showDate()">
-                                            <option value="yes" selected>Ya</option>
-                                            <option value="no">Tidak</option>
+                                            <option value="ya" selected>Ya</option>
+                                            <option value="tidak">Tidak</option>
                                         </select>
                                     </div>
                                     <div class="form-group hide-input" id="half-day">
                                         <label>Setengah Hari Kerja</label>
                                         <select class="form-control" name="half-day">
-                                            <option value="no">Tidak</option>
-                                            <option value="yes">Ya</option>
+                                            <option value="tidak">Tidak</option>
+                                            <option value="ya">Ya</option>
                                         </select>
                                     </div>
                                     <div class="form-group" id="range-group">
@@ -94,19 +94,19 @@
                                     <div class="form-group">
                                         <label>Multiple Days</label>
                                         <select class="form-control" name="multiple-days" onchange="showDate()">
-                                            <option value="yes" >Ya</option>
-                                            <option value="no" selected>Tidak</option>
+                                            <option value="ya" >Ya</option>
+                                            <option value="tidak" selected>Tidak</option>
                                         </select>
                                     </div>
                                     <div class="form-group" id="half-day">
                                         <label>Setengah Hari Kerja</label>
                                         <select class="form-control" name="half-day">
                                             @if ($leave->half_day == "no")
-                                                <option value="no" selected>Tidak</option>
-                                                <option value="yes">Ya</option>    
+                                                <option value="tidak" selected>Tidak</option>
+                                                <option value="ya">Ya</option>    
                                             @else
-                                            <option value="no" >Tidak</option>
-                                            <option value="yes" selected>Ya</option>    
+                                            <option value="tidak" >Tidak</option>
+                                            <option value="ya" selected>Ya</option>    
                                             @endif
                                         </select>
                                     </div>

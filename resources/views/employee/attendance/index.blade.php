@@ -119,7 +119,7 @@
                                 @foreach($attendances as $index => $attendance)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        @if ($attendance->registered == 'yes')
+                                        @if ($attendance->registered == 'ya')
                                         <td>{{ $attendance->created_at->format('d-m-Y') }}</td>
                                         <td><h5 class="text-center"><span class="badge badge-pill badge-success">Hadir</span> </h5></td>
                                         <td>{{ $attendance->created_at->format('H:i:s') }}</td>

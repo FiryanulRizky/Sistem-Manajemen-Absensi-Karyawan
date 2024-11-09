@@ -43,7 +43,7 @@ class HolidayController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->input('multiple-days') == "no") {
+        if($request->input('multiple-days') == "tidak") {
             $this->validate($request, [
                 'name' => 'required',
             ]);
@@ -90,7 +90,7 @@ class HolidayController extends Controller
     public function update(Request $request, $id)
     {
         $holiday = Holiday::findOrFail($id);
-        if($request->input('multiple-days') == "no") {
+        if($request->input('multiple-days') == "tidak") {
             $this->validate($request, [
                 'name' => 'required',
             ]);

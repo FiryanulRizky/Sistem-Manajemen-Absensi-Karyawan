@@ -57,11 +57,11 @@
                                     <label for="">Lebih Dari Sehari ?</label>
                                     <select name="multiple-days" class="form-control" onchange="showInput()">
                                         @if ($holiday->end_date)
-                                        <option value="no">Tidak</option>
-                                        <option value="yes" selected>Ya</option>
+                                        <option value="tidak">Tidak</option>
+                                        <option value="ya" selected>Ya</option>
                                         @else
-                                        <option value="no" selected>Tidak</option>
-                                        <option value="yes">Ya</option>
+                                        <option value="tidak" selected>Tidak</option>
+                                        <option value="ya">Ya</option>
                                         @endif
                                     </select>
                                 </div>
