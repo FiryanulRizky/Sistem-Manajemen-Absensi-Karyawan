@@ -165,7 +165,15 @@ $(document).ready(function(){
     
     $('#dataTable').DataTable({
         responsive:true,
-        autoWidth: false
+        autoWidth: false,
+        dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'collection',
+                    text: 'Export',
+                    buttons: ['copy','excel', 'csv', 'pdf']
+                }
+            ]
     });
     
 });

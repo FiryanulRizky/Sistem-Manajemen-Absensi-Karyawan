@@ -158,7 +158,15 @@ $(document).ready(function(){
             { responsivePriority: 1, targets: 0 },
             { responsivePriority: 2, targets: 1 },
             { responsivePriority: 200000000000, targets: -1 }
-        ]
+        ],
+        dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'collection',
+                    text: 'Export',
+                    buttons: ['copy','excel', 'csv', 'pdf']
+                }
+            ]
     });
     $('[data-toggle="tooltip"]').tooltip({
         trigger: 'hover'
