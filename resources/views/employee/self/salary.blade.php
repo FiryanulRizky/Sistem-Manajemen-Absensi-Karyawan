@@ -69,7 +69,7 @@
                             <b>Invoice #007612</b><br />
                             <br />
                             <b>Order ID:</b> 4F3S8J<br />
-                            <b>Gaji Terakhir :</b> {{ date('t F Y',strtotime(date('d F Y'))) }}<br />
+                            <b>Gaji Terakhir :</b> {{ date('t F Y',strtotime("-1 month",strtotime(date('d F Y')))) }}<br />
                             <b>Account:</b> 968-34567
                         </div>
                         <!-- /.col -->
@@ -135,7 +135,7 @@
                         <!-- /.col -->
                         <div class="col-6">
                             <p class="lead">
-                                Dibayarkan Pada {{ date('t F Y',strtotime(date('d F Y'))) }}
+                                Dibayarkan Pada {{ date('t F Y',strtotime("-1 month",strtotime(date('d F Y')))) }}
                             </p>
 
                             <div class="table-responsive">
