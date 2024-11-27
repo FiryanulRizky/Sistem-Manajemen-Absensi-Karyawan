@@ -66,7 +66,7 @@ class AttendanceController extends Controller
             'employee_id' => $employee_id,
             'entry_ip' => $request->ip(),
             'time' => date('h'),
-            'entry_location' => $request->entry_location
+            'entry_location' => $request->entry_location ?? 'Geo Tag Expired'
         ]);
         $attendance->save();
         if(date('h')<=9) {
