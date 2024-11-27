@@ -6,16 +6,16 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Expense Claim</h1>
+                    <h1 class="m-0 text-dark">Klaim Lembur</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item">
-                            <a href="{{ route('employee.index') }}">Employee Dashboard</a>
+                            <a href="{{ route('employee.index') }}">Dashboard Karyawan</a>
                         </li>
                         <li class="breadcrumb-item active">
-                            Expense Claim
+                            Klaim Lembur
                         </li>
                     </ol>
                 </div>
@@ -36,7 +36,7 @@
                     <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">
-                                Expense Claim
+                                Klaim Lembur
                             </h3>
                         </div>
                         @include('messages.alerts')
@@ -48,7 +48,7 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="">Reason</label>
+                                    <label for="">Judul Tugas</label>
                                     <input type="text" name="reason" value="{{ old('reason') }}" class="form-control">
                                     @error('reason')
                                     <div class="text-danger">
@@ -57,7 +57,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Description</label>
+                                    <label for="">Deskripsi</label>
                                     <textarea name="description" class="form-control">{{ old('description') }}</textarea>
                                     @error('description')
                                     <div class="text-danger">
@@ -65,9 +65,15 @@
                                     </div>
                                     @enderror
                                 </div>
+                                <p style="font-size:10px;color:blue;font-style:italic">
+                                    Hari ini : {{ date('d F Y') }}<br>
+                                    total lembur : {{ $jumlah_jam_lembur }} Jam<br>
+                                    upah lembur = {{ $overtime_cost }} per Jam
+                                </p>
                                 <div class="form-group">
-                                    <label for="">Amount</label>
-                                    <input type="text" name="amount" value="{{ old('amount') }}" class="form-control">
+                                    <label for="">Estimasi Total Upah Lembur</label>
+                                    <input disabled type="text" name="amount2" value="{{ $upah_lembur }}" class="form-control">
+                                    <input type="text" name="amount" value="{{ $upah_lembur }}" style="display: none;">
                                     @error('amount')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -75,7 +81,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Receipt Image</label>
+                                    <label for="">Bukti Absensi</label>
                                     <input type="file" name="receipt" class="form-control-file">
                                     @error('receipt')
                                     <div class="text-danger">
@@ -85,7 +91,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn btn-primary" type="submit">Submit</button>
+                                <button class="btn btn-primary" type="submit">Ajukan</button>
                             </div>
                         </form>
                     </div>

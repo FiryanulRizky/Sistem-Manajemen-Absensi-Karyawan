@@ -105,3 +105,22 @@ Geo Tagging Untuk absen keluar :
 # 4. Menggunakan Eloquent ORM Laravel dalam melakukan interaksi database.
 Berikut adalah implementasinya :
 ![14  Interaksi Database dengan Eloquent ORM Laravel](https://user-images.githubusercontent.com/60762912/145530517-386bf347-741b-4940-909c-ee07fcd59f30.PNG)
+
+# 5. Menu Setting Lembur oleh Admin.
+Admin bisa mengatur parameter hitung dari penentuan lembur seperti jam awal/batas akhir dan upah lembur per jam nya melalui menu setting 
+![Screenshot 2024-11-27 180854](https://github.com/user-attachments/assets/d0b013b8-6d20-4254-a45b-c3037270363b)
+
+# 6. Pengajuan Lembur oleh Karyawan.
+Karyawan dapat mengajukan hak jam lemburnya
+![Screenshot 2024-11-27 180424](https://github.com/user-attachments/assets/9681f8b8-957e-4e49-a8cd-0e2785699500)
+dimana logika perhitungan lembur ditentukan sebagai berikut :
+- Karyawan Wajib Melakukan Absen Keluar dan Jam harus menunjukkan lewat 1 Jam dari parameter setting awal lembur oleh admin
+- Jumlah Jam Lembur = Selisih Jam Absen Keluar dengan parameter setting awal lembur oleh admin
+- Jumlah Upah Lembur = Perkalian Jumlah Jam Lembur dengan parameter setting upah lembur per jam oleh admin
+![Screenshot 2024-11-27 181539](https://github.com/user-attachments/assets/bac374ae-2eec-4d36-a717-b6baa1f03d1e)
+
+# 7. Slip Gaji Karyawan.
+Pada Sesi Karyawan terdapat menu Slip Gaji 1 Bulan Terakhir
+![Screenshot 2024-11-27 183140](https://github.com/user-attachments/assets/6da6462c-ede2-47b0-8c25-27746d9550ee)
+Jika di tekan tombol Print maka akan mencetak dokumen pdf Slip Gaji
+![Screenshot 2024-11-27 183236](https://github.com/user-attachments/assets/4ccb3fc1-6638-49ed-a3e4-227de1ae8e37)

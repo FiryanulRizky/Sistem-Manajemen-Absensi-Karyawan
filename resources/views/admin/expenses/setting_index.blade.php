@@ -6,16 +6,16 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Daftar Hari Libur</h1>
+                    <h1 class="m-0 text-dark">Setting Lembur</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item">
-                            <a href="{{ route('employee.index') }}">Dashboard Karyawan</a>
+                            <a href="{{ route('admin.index') }}">Admin Dashboard</a>
                         </li>
                         <li class="breadcrumb-item active">
-                            Daftar Hari Libur
+                            Setting Lembur
                         </li>
                     </ol>
                 </div>
@@ -31,36 +31,42 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6 mx-auto">
+                <div class="col-lg-8 col-md-10 mx-auto">
                     <!-- general form elements -->
+                    @include('messages.alerts')
+                    @error('status')
+                        <div class="alert alert-danger">
+                            Pilih Status Validasi
+                        </div>
+                    @enderror
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Daftar Hari Libur</h3>
+                            <h3 class="card-title">Setting Lembur</h3>
                         </div>
                         <div class="card-body">
-                            @if ($holidays->count())
+                            @if ($departments->count())
                             <table class="table table-hover" id="dataTable">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nama</th>
-                                        <th>Bulan</th>
-                                        <th>Tanggal Mulai</th>
-                                        <th>Tanggal Berakhir</th>
+                                        <th>Department</th>
+                                        <th>Jam Batas Mulai Lembur</th>
+                                        <th>Jam Batas Selesai Lembur</th>
+                                        <th>Upah Lembur per Jam</th>
+                                        <td class="none">Aksi</td>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($holidays as $index => $holiday)
+                                    @foreach ($departments as $index => $department)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td>{{ $holiday->name }}</td>
-                                        <td>{{ $holiday->start_date->format('F') }}</td>
-                                        <td>{{ $holiday->start_date->format('d')}}</td>
-                                        @if($holiday->end_date) 
-                                        <td>{{ $holiday->end_date->format('d') }}</td>
-                                        @else
-                                        <td>Sehari</td>
-                                        @endif
+                                        <td>{{ $department->name }}</td>
+                                        <td>{{ $department->overtime_start }}</td>
+                                        <td>{{ $department->overtime_end }}</td>
+                                        <td>{{ $department->overtime_cost }}</td>
+                                        <td>
+                                            <a href="{{ route('admin.expenses.setting_edit', $department->id) }}" class="btn btn-flat btn-warning">Edit</a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -85,17 +91,29 @@
 
 <script>
 $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+    $('.popover-dismiss').popover({
+        trigger: 'focus'
+    });
     $('#dataTable').DataTable({
         responsive:true,
         autoWidth: false,
+        columnDefs: [
+            { responsivePriority: 1, targets: 0 },
+            { responsivePriority: 2, targets: 1 },
+            { responsivePriority: 200000000000, targets: -1 }
+        ],
         dom: 'Bfrtip',
-            buttons: [
-                {
-                    extend: 'collection',
-                    text: 'Export',
-                    buttons: ['copy','excel', 'csv', 'pdf']
-                }
-            ]
+        buttons: [
+            {
+                extend: 'collection',
+                text: 'Export',
+                buttons: ['copy','excel', 'csv', 'pdf']
+            }
+        ]
+    });
+    $('[data-toggle="tooltip"]').tooltip({
+        trigger: 'hover'
     });
 });
 </script>

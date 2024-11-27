@@ -6,16 +6,16 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">List Expenses</h1>
+                    <h1 class="m-0 text-dark">Daftar Lembur</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item">
-                            <a href="{{ route('employee.index') }}">Employee Dashboard</a>
+                            <a href="{{ route('employee.index') }}">Dashboard Karyawan</a>
                         </li>
                         <li class="breadcrumb-item active">
-                            List Expenses
+                            Daftar Lembur
                         </li>
                     </ol>
                 </div>
@@ -36,7 +36,7 @@
                     @include('messages.alerts')
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">List of Expenses</h3>
+                            <h3 class="card-title">Daftar Lembur</h3>
                         </div>
                         <div class="card-body">
                             @if ($expenses->count())
@@ -44,13 +44,13 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Applied on</th>
-                                        <th>Reason</th>
+                                        <th>Diajukan pada</th>
+                                        <th>Judul Tugas</th>
                                         <th>Status</th>
-                                        <th>Amount</th>
-                                        <th class="none">Description</th>
-                                        <th class="none">Receipt</th>
-                                        <th class="none">Actions</th>
+                                        <th>Estimasi Upah Lembur</th>
+                                        <th class="none">Deskripsi</th>
+                                        <th class="none">Bukti Absen Lembur</th>
+                                        <th class="none">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,10 +79,10 @@
                                         <td>
                                             @if ($expense->receipt)
                                             <button type="button" class="btn btn-flat btn-primary" data-toggle="modal" data-target="#exampleModalCenter{{ $index + 1 }}">
-                                                View Receipt
+                                                Lihat Bukti Absen Lembur
                                             </button>  
                                             @else
-                                            No receipt uploaded
+                                            Belum Ada File Upload
                                             @endif
                                         </td>
                                         <td>
@@ -91,7 +91,7 @@
                                             data-toggle="modal" 
                                             data-target="#deleteModalCenter{{ $index + 1 }}"
                                             >
-                                                Delete
+                                                Hapus
                                             </button>
                                         </td>
                                     </tr>
@@ -118,7 +118,7 @@
                                         <div class="modal-content">
                                             <div class="card card-danger">
                                                 <div class="card-header">
-                                                    <h5 style="text-align: center !important">Are you sure want to delete?</h5>
+                                                    <h5 style="text-align: center !important">Yakin ingin dihapus ?</h5>
                                                 </div>
                                                 <div class="card-body text-center d-flex" style="justify-content: center">
                                                     
@@ -134,7 +134,7 @@
                                                     </form>
                                                 </div>
                                                 <div class="card-footer text-center">
-                                                    <small>This action is irreversable</small>
+                                                    <small>Aksi ini tidak bisa dibatalkan</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -144,7 +144,7 @@
                             @endfor
                             @else
                             <div class="alert alert-info text-center" style="width:50%; margin: 0 auto">
-                                <h4>No records available</h4>
+                                <h4>Tidak Ada Data</h4>
                             </div>
                             @endif
                         </div>

@@ -58,11 +58,11 @@
         </li>
     </ul>
 </li>
-<!-- <li class="nav-item has-treeview">
+<li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-        <i class="nav-icon fa fa-calendar-minus-o"></i>
+        <i class="nav-icon fas fa-clock"></i>
         <p>
-            Expenses
+            Lembur
             <i class="fas fa-angle-left right"></i>
             <span class="badge badge-info right">2</span>
         </p>
@@ -74,7 +74,7 @@
                 class="nav-link"
             >
                 <i class="far fa-circle nav-icon"></i>
-                <p>Claim Expense</p>
+                <p>Klaim Lembur</p>
             </a>
         </li>
         <li class="nav-item">
@@ -83,7 +83,7 @@
                 class="nav-link"
             >
                 <i class="far fa-circle nav-icon"></i>
-                <p>List of Expenses</p>
+                <p>Daftar Lembur</p>
             </a>
         </li>
     </ul>
@@ -92,7 +92,7 @@
     <a href="#" class="nav-link">
         <i class="nav-icon fa fa-address-card"></i>
         <p>
-            Self
+            Report
             <i class="fas fa-angle-left right"></i>
             <span class="badge badge-info right">3</span>
         </p>
@@ -104,7 +104,7 @@
                 class="nav-link"
             >
                 <i class="far fa-circle nav-icon"></i>
-                <p>Generate Salary slip</p>
+                <p>Slip Gaji</p>
             </a>
         </li>
         <li class="nav-item">
@@ -113,8 +113,8 @@
                 class="nav-link"
             >
                 <i class="far fa-circle nav-icon"></i>
-                <p>Holiday List</p>
+                <p>Daftar Hari Libur</p>
             </a>
         </li>
     </ul>
-</li> -->
+</li>

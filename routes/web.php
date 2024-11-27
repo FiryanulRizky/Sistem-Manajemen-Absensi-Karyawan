@@ -52,6 +52,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth','
     // Routes for expenses //
     Route::get('/expenses/list-expenses', 'ExpenseController@index')->name('expenses.index');
     Route::put('/expenses/{expense_id}', 'ExpenseController@update')->name('expenses.update');
+    Route::get('/setting/overtime', 'ExpenseController@setting_index')->name('expenses.setting_index');
+    Route::get('/setting/overtime-edit/{department_id}', 'ExpenseController@setting_edit')->name('expenses.setting_edit');
+    Route::put('/setting/overtime-update/{department_id}', 'ExpenseController@setting_update')->name('expenses.setting_update');
     // Routes for expenses //
 
     // Routes for holidays //

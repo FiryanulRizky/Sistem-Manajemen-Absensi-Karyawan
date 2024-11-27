@@ -6,6 +6,7 @@ use App\Holiday;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SelfController extends Controller
 {
@@ -50,9 +51,29 @@ class SelfController extends Controller
     }
 
     public function salary_slip() {
-        return view('employee.self.salary');
+        $employee = Auth::user()->employee;
+        $expenses = DB::table('expenses')->where('employee_id',$employee->id)->orderBy('created_at','desc')->first();
+        $users = DB::table('users')->where('id',$employee->user_id)->first();
+        $departments = DB::table('departments')->where('id',$employee->department_id)->first();
+        $data = [
+            'employee' => $employee,
+            'expenses' => $expenses,
+            'users' => $users,
+            'departments' => $departments
+        ];
+        return view('employee.self.salary')->with($data);
     }
     public function salary_slip_print() {
-        return view('employee.self.salary-print');
+        $employee = Auth::user()->employee;
+        $expenses = DB::table('expenses')->where('employee_id',$employee->id)->orderBy('created_at','desc')->first();
+        $users = DB::table('users')->where('id',$employee->user_id)->first();
+        $departments = DB::table('departments')->where('id',$employee->department_id)->first();
+        $data = [
+            'employee' => $employee,
+            'expenses' => $expenses,
+            'users' => $users,
+            'departments' => $departments
+        ];
+        return view('employee.self.salary-print')->with($data);
     }
 }

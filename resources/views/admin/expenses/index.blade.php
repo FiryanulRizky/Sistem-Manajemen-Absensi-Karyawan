@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">List Expenses</h1>
+                    <h1 class="m-0 text-dark">Daftar Lembur</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
@@ -15,7 +15,7 @@
                             <a href="{{ route('admin.index') }}">Admin Dashboard</a>
                         </li>
                         <li class="breadcrumb-item active">
-                            List Expenses
+                            Daftar Lembur
                         </li>
                     </ol>
                 </div>
@@ -36,12 +36,12 @@
                     @include('messages.alerts')
                     @error('status')
                         <div class="alert alert-danger">
-                            Choose a valid status option
+                            Pilih Status Validasi
                         </div>
                     @enderror
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">List of expenses</h3>
+                            <h3 class="card-title">Daftar Lembur</h3>
                         </div>
                         <div class="card-body">
                             @if ($expenses->count())
@@ -49,14 +49,13 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Applied on</th>
-                                        <th>Name</th>
-                                        <th>Department</th>
-                                        <th>Designation</th>
-                                        <th>Reason</th>
+                                        <th>Diajukan pada</th>
+                                        <th>Judul Tugas</th>
                                         <th>Status</th>
-                                        <th class="none">Description</th>
-                                        <td class="none">Actions</td>
+                                        <th>Estimasi Upah Lembur</th>
+                                        <th class="none">Deskripsi</th>
+                                        <th class="none">Bukti Absen Lembur</th>
+                                        <th class="none">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -64,9 +63,6 @@
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $expense->created_at->format('d-m-Y') }}</td>
-                                        <td>{{ $expense->employee->first_name.' '.$expense->employee->last_name }}</td>
-                                        <td>{{ $expense->employee->department }}</td>
-                                        <td>{{ $expense->employee->desg }}</td>
                                         <td>{{ $expense->reason }}</td>
                                         <td>
                                             <h5>
@@ -83,14 +79,24 @@
                                                 </span> 
                                             </h5>
                                         </td>
+                                        <td>{{ $expense->amount }}</td>
                                         <td>{{ $expense->description }}</td>
+                                        <td>
+                                            @if ($expense->receipt)
+                                            <button type="button" class="btn btn-flat btn-primary" data-toggle="modal" data-target="#exampleModalCenter{{ $index + 1 }}">
+                                                Lihat Bukti Absen Lembur
+                                            </button>  
+                                            @else
+                                            Belum Ada File Upload
+                                            @endif
+                                        </td>
                                         <td>
                                             <button 
                                             class="btn btn-flat btn-info"
                                             data-toggle="modal"
                                             data-target="#deleteModalCenter{{ $index + 1 }}"
                                             >
-                                            Change Status
+                                            Ubah Status
                                             </button>
                                         </td>
                                     </tr>
@@ -99,12 +105,25 @@
                             </table>
                             @for ($i = 1; $i < $expenses->count()+1; $i++)
                                 <!-- Modal -->
+                                @if ($expenses->get($i-1)->receipt )
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModalCenter{{ $i }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1{{ $i }}" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body text-center">
+                                                    <img src="/storage/receipts/{{ $expenses->get($i-1)->receipt }}" class="img-fluid" alt="Receipt Image" style="width: auto; height:100%">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal -->
+                                @endif
                                 <div class="modal fade" id="deleteModalCenter{{ $i }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalCenterTitle1{{ $i }}" aria-hidden="true">
                                     <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="card card-info">
                                                 <div class="card-header">
-                                                    <h5 style="text-align: center !important">Update Expense Status</h5>
+                                                    <h5 style="text-align: center !important">Update Status Lembur</h5>
                                                 </div>
                                                 <form 
                                                     action="{{ route('admin.expenses.update', $expenses->get($i-1)->id) }}"
@@ -114,7 +133,7 @@
                                                     @csrf
                                                     @method('PUT')
                                                         <div class="form-group text-center">
-                                                            <label for="">Select status</label>
+                                                            <label for="">Pilih status</label>
                                                             <select name="status" class="form-control text-center mx-auto" style="width:50%">
                                                                 <option hidden disabled selected value> ---- </option>
                                                                 <option value="pending">Pending</option>
@@ -136,7 +155,7 @@
                             @endfor
                             @else
                             <div class="alert alert-info text-center" style="width:50%; margin: 0 auto">
-                                <h4>No records available</h4>
+                                <h4>Tidak Ada Data</h4>
                             </div>
                             @endif
                         </div>

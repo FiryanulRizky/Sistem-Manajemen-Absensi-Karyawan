@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Employee;
 
 use App\Expense;
+use App\Employee;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class ExpenseController extends Controller
 {
@@ -22,8 +25,21 @@ class ExpenseController extends Controller
     }
 
     public function create () {
+        $departemen = DB::table('departments')->where('id',Employee::find(Auth::user()->employee->id)->department_id)->get();
+        $absen = DB::table('attendances')->where('employee_id',Auth::user()->employee->id)->get();
+        $out = date('H',strtotime($absen[0]->updated_at));
+        if($out > date('H',strtotime($departemen[0]->overtime_start)) && $out <= date('H',strtotime($departemen[0]->overtime_end))) {
+            $jumlah_jam_lembur = $out - date('H',strtotime($departemen[0]->overtime_start));
+            $upah_lembur = $departemen[0]->overtime_cost*$jumlah_jam_lembur;
+        } else {
+            $upah_lembur = "Jam Lembur adalah lewat dari ".$departemen[0]->overtime_start."";
+        }
         $data = [
-            'employee' => Auth::user()->employee
+            'employee' => Auth::user()->employee,
+            'jam_absen_out' => $out,
+            'jumlah_jam_lembur' => $jumlah_jam_lembur ?? 0,
+            'overtime_cost' => $departemen[0]->overtime_cost,
+            'upah_lembur' => $upah_lembur
         ];
         return view('employee.expenses.create')->with($data);
     }
@@ -39,6 +55,7 @@ class ExpenseController extends Controller
             'receipt' => 'image | nullable'
         ]);
 
+        // Photo upload
         if ($request->hasFile('receipt')) {
             // GET FILENAME
             $filename_ext = $request->file('receipt')->getClientOriginalName();
@@ -49,9 +66,12 @@ class ExpenseController extends Controller
             //FILNAME TO STORE
             $filename_store = $filename.'_'.time().'.'.$ext;
             // UPLOAD IMAGE
-            $path = $request->file('receipt')->storeAs('public/receipts', $filename_store);
-        } else {
-        $filename_store = null;
+            // $path = $request->file('receipt')->storeAs('public'.DIRECTORY_SEPARATOR.'employee_photos', $filename_store);
+            // add new file name
+            $image = $request->file('receipt');
+            $image_resize = Image::make($image->getRealPath());              
+            $image_resize->resize(300, 300);
+            $image_resize->save(public_path(DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.'receipts'.DIRECTORY_SEPARATOR.$filename_store));
         }
         Expense::create([
             'employee_id' => $employee_id,
@@ -60,7 +80,7 @@ class ExpenseController extends Controller
             'amount' => $request->input('amount'),
             'receipt' => $filename_store
         ]);
-        $request->session()->flash('success', 'Your expense claim has been successfully applied, wait for approval.');
+        $request->session()->flash('success', 'Pengajuan Lembur Berhasil Dikirim, silahkan tunggu status approval');
         return redirect()->route('employee.expenses.create')->with($data);
     }
 
@@ -85,12 +105,11 @@ class ExpenseController extends Controller
         $expense->reason = $request->reason;
         $expense->description = $request->description;
         $expense->amount = $request->amount;
-        if (($request->new_image == 'ya') && $request->hasFile('receipt')) {
-            // Deleting the old image
+        if ($request->hasFile('receipt')) {
             $old_filepath = public_path(DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.'receipts'.DIRECTORY_SEPARATOR. $expense->receipt);
             if(file_exists($old_filepath)) {
                 unlink($old_filepath);
-            }
+            }    
             // GET FILENAME
             $filename_ext = $request->file('receipt')->getClientOriginalName();
             // GET FILENAME WITHOUT EXTENSION
@@ -100,12 +119,16 @@ class ExpenseController extends Controller
             //FILNAME TO STORE
             $filename_store = $filename.'_'.time().'.'.$ext;
             // UPLOAD IMAGE
-            $path = $request->file('receipt')->storeAs('public'.DIRECTORY_SEPARATOR.'receipts', $filename_store);
+            // $path = $request->file('receipt')->storeAs('public'.DIRECTORY_SEPARATOR.'employee_photos', $filename_store);
             // add new file name
+            $image = $request->file('receipt');
+            $image_resize = Image::make($image->getRealPath());              
+            $image_resize->resize(300, 300);
+            $image_resize->save(public_path(DIRECTORY_SEPARATOR.'storage/receipts/'.DIRECTORY_SEPARATOR.$filename_store));
             $expense->receipt = $filename_store;
         }
         $expense->save();
-        $request->session()->flash('success', 'Your expense has been successfully updated!');
+        $request->session()->flash('success', 'Pengajuan Lembur Berhasil Di Update');
         return redirect()->route('employee.expenses.index');
     }
 
@@ -117,7 +140,7 @@ class ExpenseController extends Controller
             File::delete($filepath);
         }
         $expense->delete();
-        request()->session()->flash('success', 'Expense has been successfully deleted');
+        request()->session()->flash('success', 'Data Pengajuan Lembur Berhasil Di Hapus');
         return redirect()->route('employee.expenses.index');
     }
 }
