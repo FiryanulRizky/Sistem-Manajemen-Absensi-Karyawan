@@ -117,12 +117,12 @@ Karyawan dapat mengajukan hak jam lemburnya
 
 dimana logika perhitungan lembur ditentukan sebagai berikut :
 
-- Karyawan Melakukan Absen Keluar sesuai Range Lembur dan Jam harus menunjukkan lewat 1 Jam dari parameter setting awal lembur oleh admin, seperti contoh disini jam selesai menunjukkan pukul 21:00
+- Karyawan Melakukan Absen Keluar sesuai Range Lembur dan Jam harus menunjukkan lewat 1 Jam dari parameter setting awal lembur oleh admin, seperti contoh disini jam selesai menunjukkan pukul 21:11
 
 ![Screenshot 2024-11-27 180323](https://github.com/user-attachments/assets/c304b025-dc4f-4809-8fc9-d764b457d53d)
 
 - Jumlah Jam Lembur = Selisih Jam Absen Keluar dengan parameter setting awal lembur oleh admin 
-  (contoh : pukul 21:00 - pukul 17:00 = 4 Jam)
+  (contoh : pukul 21:11 (dibulatkan 21:00) - pukul 17:00 = 4 Jam)
 - Jumlah Upah Lembur = Perkalian Jumlah Jam Lembur dengan parameter setting upah lembur per jam oleh admin
   (contoh : Rp. 10.000,- x 4 Jam = Rp. 40.000,-)
 
@@ -133,8 +133,12 @@ Berikut adalah Operasi Logic Controller yang mengatur perhitungan gaji karyawan 
 # 7. Slip Gaji Karyawan.
 Pada Sesi Karyawan terdapat menu Slip Gaji 1 Bulan Terakhir
 
-![Screenshot 2024-11-27 183140](https://github.com/user-attachments/assets/6da6462c-ede2-47b0-8c25-27746d9550ee)
+![Screenshot 2024-11-28 045244](https://github.com/user-attachments/assets/637a0a7a-be74-49ad-a596-e27561597637)
 
 Jika di tekan tombol Print maka akan mencetak dokumen pdf Slip Gaji
 
-![Screenshot 2024-11-27 183236](https://github.com/user-attachments/assets/4ccb3fc1-6638-49ed-a3e4-227de1ae8e37)
+![Screenshot 2024-11-28 045320](https://github.com/user-attachments/assets/1178e24e-9dd8-4535-82c5-121d11528c9e)
+
+Berikut adalah logika menampilkan Slip Gaji 1 bulan terakhir :
+
+![Screenshot 2024-11-28 045512](https://github.com/user-attachments/assets/7884e74c-46d7-4658-8854-f30b25dda37e)
