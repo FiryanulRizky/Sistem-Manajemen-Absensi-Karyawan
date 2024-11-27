@@ -107,7 +107,7 @@ Berikut adalah implementasinya :
 ![14  Interaksi Database dengan Eloquent ORM Laravel](https://user-images.githubusercontent.com/60762912/145530517-386bf347-741b-4940-909c-ee07fcd59f30.PNG)
 
 # 5. Menu Setting Lembur oleh Admin.
-Admin bisa mengatur parameter hitung dari penentuan lembur seperti jam awal/batas akhir dan upah lembur per jam nya melalui menu setting
+Admin bisa mengatur parameter hitung dari penentuan lembur tiap Department seperti jam awal/batas akhir dan upah lembur per jam nya melalui menu setting
 ![Screenshot 2024-11-27 180854](https://github.com/user-attachments/assets/d0b013b8-6d20-4254-a45b-c3037270363b)
 
 # 6. Pengajuan Lembur oleh Karyawan.
@@ -117,9 +117,16 @@ Karyawan dapat mengajukan hak jam lemburnya
 
 dimana logika perhitungan lembur ditentukan sebagai berikut :
 
-- Karyawan Wajib Melakukan Absen Keluar dan Jam harus menunjukkan lewat 1 Jam dari parameter setting awal lembur oleh admin
-- Jumlah Jam Lembur = Selisih Jam Absen Keluar dengan parameter setting awal lembur oleh admin
+- Karyawan Melakukan Absen Keluar sesuai Range Lembur dan Jam harus menunjukkan lewat 1 Jam dari parameter setting awal lembur oleh admin, seperti contoh disini jam selesai menunjukkan pukul 21:00
+
+![Screenshot 2024-11-27 180323](https://github.com/user-attachments/assets/c304b025-dc4f-4809-8fc9-d764b457d53d)
+
+- Jumlah Jam Lembur = Selisih Jam Absen Keluar dengan parameter setting awal lembur oleh admin 
+  (contoh : pukul 21:00 - pukul 17:00 = 4 Jam)
 - Jumlah Upah Lembur = Perkalian Jumlah Jam Lembur dengan parameter setting upah lembur per jam oleh admin
+  (contoh : Rp. 10.000,- x 4 Jam = Rp. 40.000,-)
+
+Berikut adalah Operasi Logic Controller yang mengatur perhitungan gaji karyawan :
 
 ![Screenshot 2024-11-27 181539](https://github.com/user-attachments/assets/bac374ae-2eec-4d36-a717-b6baa1f03d1e)
 
