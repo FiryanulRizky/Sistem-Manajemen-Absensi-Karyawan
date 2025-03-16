@@ -91,9 +91,9 @@
                                 <tbody>
                                     <tr>
                                         <td>{{ $employee->salary }}</td>
-                                        <td>{{ $expenses->amount }}</td>
-                                        <td>{{ 2*($employee->salary+$expenses->amount)/100 }}</td>
-                                        <td>{{ $employee->salary+$expenses->amount-(2*($employee->salary+$expenses->amount)/100) }}</td>
+                                        <td>{{ $expenses->amount ?? 0 }}</td>
+                                        <td>{{ 2*($employee->salary+($expenses->amount ?? 0))/100 }}</td>
+                                        <td>{{ $employee->salary+($expenses->amount ?? 0)-(2*($employee->salary+($expenses->amount ?? 0))/100) }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -148,15 +148,15 @@
                                     </tr>
                                     <tr>
                                         <th>Lembur</th>
-                                        <td>{{ $expenses->amount }}</td>
+                                        <td>{{ $expenses->amount ?? 0 }}</td>
                                     </tr>
                                     <tr>
                                         <th>PPH (23)</th>
-                                        <td>{{ 2*($employee->salary+$expenses->amount)/100 }}</td>
+                                        <td>{{ 2*($employee->salary+($expenses->amount ?? 0))/100 }}</td>
                                     </tr>
                                     <tr>
                                         <th>Total:</th>
-                                        <td>{{ $employee->salary+$expenses->amount-(2*($employee->salary+$expenses->amount)/100) }}</td>
+                                        <td>{{ $employee->salary+($expenses->amount ?? 0)-(2*($employee->salary+($expenses->amount ?? 0))/100) }}</td>
                                     </tr>
                                 </table>
                             </div>

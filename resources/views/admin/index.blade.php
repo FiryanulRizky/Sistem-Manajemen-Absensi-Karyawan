@@ -37,7 +37,8 @@
             <h1 class="display-4 text-primary">Selamat Datang di Panel Admin Website Absensi</h1>
             <p class="lead">Solusi Absensi Digital</p>
             <hr class="my-4">
-            <p>Dibuat Dadakan 8-10 Desember 2021</p>
+            <p>Copyright &copy; <?php echo date('Y') ?>
+                <a href="http://jemari-edu.web.id">Jemari Edu</a></p>
             </div>
         </div>
         </row>

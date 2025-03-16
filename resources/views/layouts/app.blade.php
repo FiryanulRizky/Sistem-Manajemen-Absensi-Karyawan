@@ -88,10 +88,9 @@
                 </div>
                 <footer class="main-footer">
                     <strong
-                        >Dibuat Dadakan &copy; 8-10 Desember 2021, oleh
-                        <a href="https://linkedin.com/in/firyanul-rizky-1593b5139/">Firyanul Rizky</a>.</strong
+                        >Copyright &copy; @php echo date('Y') @endphp
+                        <a href="http://jemari-edu.web.id">Jemari Edu</a></strong
                     >
-                    Maaf jika masih banyak kekurangan.
                     <div class="float-right d-none d-sm-inline-block">
                         <b>Versi</b> 1.0.0
                     </div>
