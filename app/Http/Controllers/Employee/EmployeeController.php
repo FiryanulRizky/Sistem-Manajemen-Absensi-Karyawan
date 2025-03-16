@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use Carbon\Carbon;
 
 class EmployeeController extends Controller
 {
@@ -50,9 +51,9 @@ class EmployeeController extends Controller
         $user_employee->name = ''.$request->first_name.' '.$request->last_name.'';
         $employee->first_name = $request->first_name;
         $employee->last_name = $request->last_name;
-        $employee->dob = $request->dob;
+        $employee->dob = Carbon::parse($request->dob)->format('Y-m-d');
         $employee->sex = $request->gender;
-        $employee->join_date = $request->join_date;
+        $employee->join_date = Carbon::parse($request->join_date)->format('Y-m-d');
         $employee->desg = $request->desg;
         $employee->department_id = $request->department_id;
         if ($request->hasFile('photo')) {
