@@ -19,7 +19,7 @@ class CreateExpensesTable extends Migration
             $table->string('reason');
             $table->string('status')->default('pending');
             $table->text('description');
-            $table->float('amount');
+            $table->int('amount');
             $table->string('receipt')->nullable();
             $table->timestamps();
         });

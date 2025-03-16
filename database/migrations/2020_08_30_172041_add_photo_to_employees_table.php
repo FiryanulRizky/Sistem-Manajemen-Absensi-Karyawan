@@ -14,7 +14,7 @@ class AddPhotoToEmployeesTable extends Migration
     public function up()
     {
         Schema::table('employees', function (Blueprint $table) {
-            $table->string('photo')->default('user.png');
+            $table->string('photo')->nullable();
         });
     }
 
