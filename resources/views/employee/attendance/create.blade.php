@@ -100,7 +100,7 @@
                                             <label for="entry_time">Waktu Absensi</label>
                                             <input
                                             type="text"
-                                            value="{{ $attendance->created_at->format('d-m-Y,  H:i:s') }}"
+                                            value="{{ Carbon\Carbon::parse($attendance->created_at)->format('d-m-Y,  H:i:s') }}"
                                             class="form-control text-center"
                                             name="entry_time"
                                             id="entry_time"
@@ -200,7 +200,7 @@
                                             class="form-control text-center"
                                             name="exit_time"
                                             id="exit_time"
-                                            value="{{ $attendance->updated_at->format('d-m-Y,  H:i:s') }}"
+                                            value="{{ Carbon\Carbon::parse($attendance->updated_at)->format('d-m-Y,  H:i:s') }}"
                                             placeholder="--:--:--"
                                             disabled
                                             style="background: #333; color:#f4f4f4"

@@ -57,7 +57,7 @@
                             </tr>
                             <tr>
                                 <td>Tanggal Lahir</td>
-                                <td>{{ $employee->dob->format('d M, Y') }}</td>
+                                <td>{{ Carbon\Carbon::parse($employee->dob)->format('d M, Y') }}</td>
                             </tr>
                             <tr>
                                 <td>Jenis Kelamin</td>
@@ -66,7 +66,7 @@
                             
                             <tr>
                                 <td>Tanggal Bergabung</td>
-                                <td>{{ $employee->join_date->format('d M, Y') }}</td>
+                                <td>{{ Carbon\Carbon::parse($employee->join_date)->format('d M, Y') }}</td>
                             </tr>
                             <tr>
                                 <td>Jabatan</td>

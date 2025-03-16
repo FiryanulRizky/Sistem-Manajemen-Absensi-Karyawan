@@ -42,7 +42,7 @@
                 <!-- Menu Body -->
                 <li class="user-body text-center">
                     @if ( Auth::user()->employee )
-                    <small>Terdaftar Sejak {{ Auth::user()->employee->join_date->format('d M, Y') }}</small>
+                    <small>Terdaftar Sejak {{ Carbon\Carbon::parse(Auth::user()->employee->join_date)->format('d M, Y') }}</small>
                     @endif 
                 <!-- /.row -->
                 </li>

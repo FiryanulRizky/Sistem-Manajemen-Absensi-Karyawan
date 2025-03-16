@@ -120,44 +120,44 @@
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         @if ($attendance->registered == 'ya')
-                                        <td>{{ $attendance->created_at->format('d-m-Y') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($attendance->created_at)->format('d-m-Y') }}</td>
                                         <td><h5 class="text-center"><span class="badge badge-pill badge-success">Hadir</span> </h5></td>
-                                        <td>{{ $attendance->created_at->format('H:i:s') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($attendance->created_at)->format('H:i:s') }}</td>
                                         <td>{{ $attendance->entry_location }}</td>
-                                        <td>{{ $attendance->updated_at->format('H:i:s') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($attendance->updated_at)->format('H:i:s') }}</td>
                                         <td>{{ $attendance->exit_location }}</td>
                                         @elseif($attendance->registered == 'no')
-                                        <td>{{ $attendance->created_at->format('d-m-Y') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($attendance->created_at)->format('d-m-Y') }}</td>
                                         <td><h5 class="text-center"><span class="badge badge-pill badge-danger">Absen</span> </h5></td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         @elseif($attendance->registered == 'sun')
-                                        <td>{{ $attendance->created_at->format('d-m-Y') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($attendance->created_at)->format('d-m-Y') }}</td>
                                         <td><h5 class="text-center"><span class="badge badge-pill badge-info">Minggu</span> </h5></td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         @elseif($attendance->registered == 'leave')
-                                        <td>{{ $attendance->created_at->format('d-m-Y') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($attendance->created_at)->format('d-m-Y') }}</td>
                                         <td><h5 class="text-center"><span class="badge badge-pill badge-info">Leave</span> </h5></td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         @elseif($attendance->registered == 'holiday')
-                                        <td>{{ $attendance->created_at->format('d-m-Y') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($attendance->created_at)->format('d-m-Y') }}</td>
                                         <td><h5 class="text-center"><span class="badge badge-pill badge-success">Hari Libur</span> </h5></td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         <td class="text-center">Belum Ada Riwayat</td>
                                         @else
-                                        <td>{{ $attendance->created_at->format('d-m-Y') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($attendance->created_at)->format('d-m-Y') }}</td>
                                         <td><h5 class="text-center"><span class="badge badge-pill badge-warning">Setengah Jam Kerja</span> </h5></td>
-                                        <td>{{ $attendance->created_at->format('H:i:s') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($attendance->created_at)->format('H:i:s') }}</td>
                                         <td>{{ $attendance->entry_location }}</td>
                                         <td> - </td>
                                         <td> - </td>

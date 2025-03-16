@@ -89,7 +89,7 @@
                                     @if($employee->attendanceToday)
                                         <td><h6 class="text-center"><span class="badge badge-pill badge-success">Terekam</span></h6></td>
                                         <td>
-                                            Terekam sejak {{ $employee->attendanceToday->created_at->format('H:i:s') }} dari {{ $employee->attendanceToday->entry_location}} dengan alamat IP {{ $employee->attendanceToday->entry_ip}}
+                                            Terekam sejak {{ Carbon\Carbon::parse($employee->attendanceToday->created_at)->format('H:i:s') }} dari {{ $employee->attendanceToday->entry_location}} dengan alamat IP {{ $employee->attendanceToday->entry_ip}}
                                         </td>
                                         @if($employee->attendanceToday->time<=9 && $employee->attendanceToday->time>=7)
                                             <td><h6 class="text-center"><span class="badge badge-pill badge-success">Hadir Tepat Waktu</span></h6></td>
@@ -101,7 +101,7 @@
 
                                         @if(!empty($employee->attendanceToday->exit_location))
                                             <td>
-                                                Terekam sejak {{ $employee->attendanceToday->updated_at->format('H:i:s') }} dari {{ $employee->attendanceToday->exit_location}} dengan alamat IP {{ $employee->attendanceToday->exit_ip}}
+                                                Terekam sejak {{ Carbon\Carbon::parse($employee->attendanceToday->updated_at)->format('H:i:s') }} dari {{ $employee->attendanceToday->exit_location}} dengan alamat IP {{ $employee->attendanceToday->exit_ip}}
                                             </td>
                                         @else
                                             <td>

@@ -2,7 +2,7 @@
 
 Oleh : Muhammad Firyanul Rizky, email : firyan2903@gmail.com, no. hp : 0895606181117
 
-Dibuat menggunakan Framework Laravel 9
+Dibuat menggunakan Framework Laravel 12 dan PHP 8.4.5
 
 Ketentuan demo aplikasi :
 1. instalasi database pada file env dengan nama database: absensi

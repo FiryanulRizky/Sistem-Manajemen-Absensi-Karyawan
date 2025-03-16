@@ -57,7 +57,7 @@
                             </tr>
                             <tr>
                                 <td>Tanggal Lahir</td>
-                                <td>{{ $admin->dob->format('d M, Y') }}</td>
+                                <td>{{ Carbon\Carbon::parse($admin->dob)->format('d M, Y') }}</td>
                             </tr>
                             <tr>
                                 <td>Jenis Kelamin</td>
@@ -66,7 +66,7 @@
                             
                             <tr>
                                 <td>Tanggal Bergabung</td>
-                                <td>{{ $admin->join_date->format('d M, Y') }}</td>
+                                <td>{{ Carbon\Carbon::parse($admin->join_date)->format('d M, Y') }}</td>
                             </tr>
                             <tr>
                                 <td>Jabatan</td>

@@ -54,10 +54,10 @@
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $holiday->name }}</td>
-                                        <td>{{ $holiday->start_date->format('F') }}</td>
-                                        <td>{{ $holiday->start_date->format('d')}}</td>
+                                        <td>{{ Carbon\Carbon::parse($holiday->start_date)->format('F') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($holiday->start_date)->format('d')}}</td>
                                         @if($holiday->end_date) 
-                                        <td>{{ $holiday->end_date->format('d') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($holiday->end_date)->format('d') }}</td>
                                         @else
                                         <td>Sehari</td>
                                         @endif

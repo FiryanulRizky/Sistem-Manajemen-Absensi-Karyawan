@@ -58,7 +58,7 @@
                                     @foreach ($leaves as $index => $leave)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td>{{ $leave->created_at->format('d-m-Y') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($leave->created_at)->format('d-m-Y') }}</td>
                                         <td>{{ $leave->reason }}</td>
                                         <td>
                                             <h5>
@@ -76,9 +76,9 @@
                                             </h5>
                                         </td>
                                         <td>{{ ucfirst($leave->half_day) }}</td>
-                                        <td>{{ $leave->start_date->format('d-m-Y')}}</td>
+                                        <td>{{ Carbon\Carbon::parse($leave->start_date)->format('d-m-Y')}}</td>
                                         @if($leave->end_date) 
-                                        <td>{{ $leave->end_date->format('d-m-Y') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($leave->end_date)->format('d-m-Y') }}</td>
                                         @else
                                         <td>Single Day</td>
                                         @endif

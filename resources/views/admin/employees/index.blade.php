@@ -61,7 +61,7 @@
                                     <td>{{ $employee->first_name.' '.$employee->last_name }}</td>
                                     <td>{{ $employee->department->name }}</td>
                                     <td>{{ $employee->desg }}</td>
-                                    <td>{{ $employee->join_date->format('d M, Y') }}</td>
+                                    <td>{{ Carbon\Carbon::parse($employee->join_date)->format('d M, Y') }}</td>
                                     <td>{{ $employee->salary }}</td>
                                     <td>
                                         <a href="{{ route('admin.employees.profile', $employee->id) }}" class="btn btn-flat btn-info">Lihat Profil</a>

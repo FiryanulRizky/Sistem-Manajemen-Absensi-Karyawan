@@ -57,7 +57,7 @@
                                     @foreach ($expenses as $index => $expense)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td>{{ $expense->created_at->format('d-m-Y') }}</td>
+                                        <td>{{ Carbon\Carbon::parse($expense->created_at)->format('d-m-Y') }}</td>
                                         <td>{{ $expense->reason }}</td>
                                         <td>
                                             <h5>
